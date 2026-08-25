@@ -496,12 +496,6 @@ h1, h2, h3 {
   margin-bottom: 0.5rem;
 }
 .section__title { font-size: var(--fs-h2); margin-bottom: 1.2rem; }
-@media (min-width: 860px) {
-  /* max(), not a flat override: --fs-h2's own clamp already exceeds 2.5rem
-     past ~1150px wide, so a flat value would shrink it there. This raises
-     the floor to 2.5rem without capping the existing fluid growth above it. */
-  .explore .section__title { font-size: max(2.5rem, var(--fs-h2)); }
-}
 .section__lead { font-size: var(--fs-lead); color: var(--text-dim); max-width: 52ch; }
 
 /* Gentle banding between sections, over the aged-paper backdrop */
@@ -1189,47 +1183,60 @@ body.inner { padding-top: var(--header-h); }
 .field-finding figcaption a:hover { color: var(--accent-soft); border-color: var(--accent-soft); }
 
 /* =========================================================
-   HOME: quick-link tiles to inner pages
+   ABOUT: study organisms (field guide plate)
    ========================================================= */
-.explore { padding: var(--space-section-tight) 0; }
-.explore__grid {
+.study-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  gap: 2.75rem 2.25rem;
   margin-top: 2.5rem;
 }
-.explore__tile {
-  display: block;
-  padding: 2rem 1.8rem 2rem 1.6rem;
-  border: 1px solid var(--line);
-  border-left: 2px solid transparent;
+@media (min-width: 640px) {
+  .study-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.study-card { margin: 0; }
+.study-card__frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--parchment);
+  border: 1px solid var(--accent-warm);
   border-radius: var(--radius);
-  background: var(--surface);
-  transition: background 300ms var(--ease-out), border-color 300ms var(--ease-out);
+  overflow: hidden;
 }
-.explore__tile:hover,
-.explore__tile:focus-visible {
-  background: var(--parchment-2);
-  border-left-color: var(--accent);
+.study-card__frame::after {
+  content: "PHOTOGRAPH";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: rgba(28, 28, 26, 0.35);
 }
-.explore__tile-num {
-  display: block;
+.study-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.study-card figcaption { margin-top: 0.9rem; }
+.study-card__name {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 2.4rem;
-  line-height: 1;
-  color: var(--accent-warm);
-  opacity: 0.65;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text);
+  margin: 0 0 0.3rem;
 }
-.explore__tile-title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.6rem;
-  letter-spacing: -0.02em;
-  margin: 0.9rem 0 0.6rem;
+.study-card__caption {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+  margin: 0;
 }
-.explore__tile-text { font-size: 0.95rem; line-height: 1.7; font-weight: 300; color: var(--text-dim); }
-.explore__tile-arrow { display: inline-block; margin-top: 1.1rem; color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem; }
 
 /* =========================================================
    GALLERY (field notebook plates)
