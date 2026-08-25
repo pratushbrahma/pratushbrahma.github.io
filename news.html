@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="News and updates from Pratush Brahma, behavioural ecologist: talks, awards, outreach, and milestones." />
+  <meta name="theme-color" content="#16291c" />
+  <title>News | Pratush Brahma</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="inner">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header is-scrolled" id="siteHeader">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand" aria-label="Pratush Brahma, home">
+        <span class="nav__mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><ellipse cx="6" cy="10.5" rx="1.7" ry="2.3"/><ellipse cx="9.7" cy="7.6" rx="1.8" ry="2.5"/><ellipse cx="14.3" cy="7.6" rx="1.8" ry="2.5"/><ellipse cx="18" cy="10.5" rx="1.7" ry="2.3"/><path d="M12 11.2c3 0 5.4 2 5.4 4.5 0 2-2.4 3.1-5.4 3.1S6.6 17.7 6.6 15.7c0-2.5 2.4-4.5 5.4-4.5z"/></svg></span>
+        <span class="nav__name">P. Brahma</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="news.html" aria-current="page">News</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="nav__cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="page-hero">
+      <div class="page-hero__wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> / <span>News</span>
+        </nav>
+        <h1 class="page-hero__title reveal" data-reveal>What&rsquo;s <em>new</em></h1>
+        <p class="page-hero__lead reveal" data-reveal>
+          Talks, awards, outreach, and the odd big milestone. Newest first.
+        </p>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="news-heading">
+      <div class="section__wrap">
+        <h2 class="section__title reveal" data-reveal id="news-heading" style="margin-bottom:2rem">Latest first</h2>
+
+        <!--
+          HOW TO ADD AN UPDATE:
+          Copy one <li class="feed-item"> ... </li> block and paste it at the TOP
+          of the list (newest first). Edit the date, tag, title and text.
+          - To add a photo: keep the <img class="feed-item__thumb" ...> line and
+            point src at a file in images/ (it removes itself if the file is missing).
+            To skip the photo, just delete that <img> line.
+          - To add a link (video, article, slides): set the href on the
+            <a class="note__btn"> line. Delete the line if there is no link.
+        -->
+        <ol class="feed reveal" data-reveal style="list-style:none;padding:0;">
+
+          <!-- TODO: confirm the exact date of your defense -->
+          <li class="feed-item">
+            <img class="feed-item__thumb" src="images/hero/portrait2.jpg" alt="Pratush Brahma smiling by a UF Biology sign" onerror="this.remove()" />
+            <div class="feed-item__body">
+              <div class="feed-item__meta">
+                <span class="feed-item__when">Dec 2024</span>
+                <span class="facts__tag">Milestone</span>
+              </div>
+              <h3 class="feed-item__title">I defended my PhD</h3>
+              <p class="feed-item__text">Years of fish models and spider trials, and it is finally done. That grin is what wrapping up a doctorate looks like. Thank you to everyone who helped me get here.</p>
+            </div>
+          </li>
+
+          <li class="feed-item">
+            <div class="feed-item__body">
+              <div class="feed-item__meta">
+                <span class="feed-item__when">Feb 2026</span>
+                <span class="facts__tag">Outreach</span>
+              </div>
+              <h3 class="feed-item__title">Judging the Florida STEM Symposium</h3>
+              <p class="feed-item__text">Spent a day judging student research at the University of Florida&rsquo;s STEM Symposium. The projects were sharp and the questions were sharper.</p>
+            </div>
+          </li>
+
+          <li class="feed-item">
+            <div class="feed-item__body">
+              <div class="feed-item__meta">
+                <span class="feed-item__when">2026</span>
+                <span class="facts__tag">Award</span>
+              </div>
+              <h3 class="feed-item__title">Animal Behavior Society Diversity Grant</h3>
+              <p class="feed-item__text">Honoured to receive a Diversity Grant from the Animal Behavior Society.</p>
+            </div>
+          </li>
+
+          <li class="feed-item">
+            <div class="feed-item__body">
+              <div class="feed-item__meta">
+                <span class="feed-item__when">Sep 2025</span>
+                <span class="facts__tag">Talk</span>
+              </div>
+              <h3 class="feed-item__title">Poster at the Southeastern Conference for Animal Behavior</h3>
+              <p class="feed-item__text">Presented my work on how changing density shapes reproduction, and why that can help a species invade, at the meeting in Knoxville.</p>
+              <div class="feed-item__links"><a href="#" class="note__btn">Poster (PDF) &rarr;</a></div>
+            </div>
+          </li>
+
+          <li class="feed-item">
+            <div class="feed-item__body">
+              <div class="feed-item__meta">
+                <span class="feed-item__when">Jul 2025</span>
+                <span class="facts__tag">Talk</span>
+              </div>
+              <h3 class="feed-item__title">Talk at the Animal Behavior Society meeting</h3>
+              <p class="feed-item__text">Gave a talk in Baltimore on density-dependent reproduction and what it means for managing invasive species, in the Behaviour and Conservation session.</p>
+              <div class="feed-item__links"><a href="#" class="note__btn">Slides &rarr;</a></div>
+            </div>
+          </li>
+
+          <li class="feed-item">
+            <div class="feed-item__body">
+              <div class="feed-item__meta">
+                <span class="feed-item__when">2024</span>
+                <span class="facts__tag">Role</span>
+              </div>
+              <h3 class="feed-item__title">Started as Program Director at CPET</h3>
+              <p class="feed-item__text">Took the helm of the Precollege Scholars Program at UF&rsquo;s Center for Precollegiate Education and Training, running summer science courses for school students.</p>
+            </div>
+          </li>
+
+          <li class="feed-item">
+            <div class="feed-item__body">
+              <div class="feed-item__meta">
+                <span class="feed-item__when">Spring 2024</span>
+                <span class="facts__tag">Outreach</span>
+              </div>
+              <h3 class="feed-item__title">NPTEL guest lecture with iThink Biology</h3>
+              <p class="feed-item__text">Sat down with a public-health official for iThink Biology&rsquo;s free online course at Azim Premji University, helping turn the chat into a health-awareness lesson for young learners across India.</p>
+              <div class="feed-item__links"><a href="#" class="note__btn">Watch the interview &rarr;</a></div>
+            </div>
+          </li>
+
+          <li class="feed-item">
+            <div class="feed-item__body">
+              <div class="feed-item__meta">
+                <span class="feed-item__when">Oct 2023</span>
+                <span class="facts__tag">Talk</span>
+              </div>
+              <h3 class="feed-item__title">Poster at the Student Conference on Conservation Science</h3>
+              <p class="feed-item__text">Shared my invasion work at the American Museum of Natural History in New York. A great room full of conservation people.</p>
+            </div>
+          </li>
+
+          <li class="feed-item">
+            <img class="feed-item__thumb" src="images/jumpingspider.jpeg" alt="A colourful jumping spider" onerror="this.remove()" />
+            <div class="feed-item__body">
+              <div class="feed-item__meta">
+                <span class="feed-item__when">Sep 2023</span>
+                <span class="facts__tag">Outreach</span>
+              </div>
+              <h3 class="feed-item__title">Spider awareness at the Florida Museum</h3>
+              <p class="feed-item__text">Brought live jumping spiders to the Florida Museum of Natural History and watched a few nervous kids turn into instant fans.</p>
+            </div>
+          </li>
+
+          <li class="feed-item">
+            <div class="feed-item__body">
+              <div class="feed-item__meta">
+                <span class="feed-item__when">Aug 2021</span>
+                <span class="facts__tag">Talk</span>
+              </div>
+              <h3 class="feed-item__title">First big talk at the Animal Behavior Society</h3>
+              <p class="feed-item__text">Presented the early version of my fish models, on predicting reproduction from population density.</p>
+            </div>
+          </li>
+
+        </ol>
+
+        <a href="#main" class="to-top" data-totop>&uarr; Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="section__wrap footer__inner">
+      <p class="footer__name">Pratush Brahma</p>
+      <p class="footer__tag">Behavioural ecology · evolution · natural history</p>
+      <p class="footer__copy">© <span id="year"></span> Pratush Brahma. Built from the field up.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

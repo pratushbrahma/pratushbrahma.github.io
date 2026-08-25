@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wildlife and field photography by Pratush Brahma, behavioural ecologist." />
+  <meta name="theme-color" content="#16291c" />
+  <title>Gallery | Pratush Brahma</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="inner">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header is-scrolled" id="siteHeader">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand" aria-label="Pratush Brahma, home">
+        <span class="nav__mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><ellipse cx="6" cy="10.5" rx="1.7" ry="2.3"/><ellipse cx="9.7" cy="7.6" rx="1.8" ry="2.5"/><ellipse cx="14.3" cy="7.6" rx="1.8" ry="2.5"/><ellipse cx="18" cy="10.5" rx="1.7" ry="2.3"/><path d="M12 11.2c3 0 5.4 2 5.4 4.5 0 2-2.4 3.1-5.4 3.1S6.6 17.7 6.6 15.7c0-2.5 2.4-4.5 5.4-4.5z"/></svg></span>
+        <span class="nav__name">P. Brahma</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+        <li><a href="contact.html" class="nav__cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="page-hero">
+      <div class="page-hero__wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> / <span>Gallery</span>
+        </nav>
+        <h1 class="page-hero__title reveal" data-reveal>From the <em>field</em></h1>
+        <p class="page-hero__lead reveal" data-reveal>
+          Animals, places, and the odd good day at work. Click any photo to see it big.
+        </p>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="gallery-heading">
+      <div class="section__wrap">
+        <h2 class="section__title reveal" data-reveal id="gallery-heading" style="margin-bottom:1.5rem">Have a look</h2>
+
+        <!--
+          Each frame points to a photo in the images/ folder via src="...".
+          To swap a photo, change the src to another file in images/. To change a
+          caption, edit data-caption="..." (shown in the pop-up) and the
+          <span class="shot__cap"> text. If a file is missing, the coloured
+          placeholder shows instead, so nothing breaks.
+        -->
+        <div class="shots" id="shots">
+          <button class="shot is-tall reveal" data-reveal data-caption="A jumping spider up close. Those big shiny eyes are the stars of my PhD.">
+            <span class="shot__ph shot__ph--spider" aria-hidden="true"></span>
+            <img src="images/jumpingspider.jpeg" alt="A colourful jumping spider photographed up close" onerror="this.remove()" />
+            <span class="shot__cap">Jumping spider, up close</span>
+          </button>
+          <button class="shot reveal" data-reveal data-reveal-delay="1" data-caption="The African jewelfish: gorgeous to look at, and a bit of a troublemaker in Florida's waters.">
+            <span class="shot__ph shot__ph--jewel" aria-hidden="true"></span>
+            <img src="images/jewelfish.jpg" alt="A red African jewelfish with blue spots" onerror="this.remove()" />
+            <span class="shot__cap">African jewelfish</span>
+          </button>
+          <button class="shot reveal" data-reveal data-reveal-delay="2" data-caption="A male rock agama (the orange one) and a female sharing a rock in India.">
+            <span class="shot__ph shot__ph--agama" aria-hidden="true"></span>
+            <img src="images/rockagamas.jpg" alt="A male and female rock agama on a boulder" onerror="this.remove()" />
+            <span class="shot__cap">Rock agamas · a stand-off</span>
+          </button>
+          <button class="shot reveal" data-reveal data-caption="The green, misty hills of the Western Ghats, frog country, where I helped survey tiny frogs.">
+            <span class="shot__ph shot__ph--frog" aria-hidden="true"></span>
+            <img src="images/mountainvalley.jpg" alt="Green rolling hills of the Western Ghats under cloud" onerror="this.remove()" />
+            <span class="shot__cap">The Western Ghats · frog country</span>
+          </button>
+          <button class="shot reveal" data-reveal data-reveal-delay="1" data-caption="Boulder-strewn scrub near Bengaluru, classic rock-agama territory.">
+            <span class="shot__ph shot__ph--forest" aria-hidden="true"></span>
+            <img src="images/hero/hero3.jpg" alt="Rocky scrub valley with boulders near Bengaluru" onerror="this.remove()" />
+            <span class="shot__cap">Rocky scrub · India</span>
+          </button>
+          <button class="shot reveal" data-reveal data-reveal-delay="2" data-caption="A trail through Florida pine flatwoods. Home turf for my US fieldwork.">
+            <span class="shot__ph shot__ph--forest" aria-hidden="true"></span>
+            <img src="images/hero/hero2.jpg" alt="A sandy trail through Florida pine flatwoods" onerror="this.remove()" />
+            <span class="shot__cap">Pine flatwoods · Florida</span>
+          </button>
+          <button class="shot reveal" data-reveal data-caption="A tank of cichlids, colourful cousins of the African jewelfish.">
+            <span class="shot__ph shot__ph--jewel" aria-hidden="true"></span>
+            <img src="images/fish.jpg" alt="A tank full of colourful cichlid fish" onerror="this.remove()" />
+            <span class="shot__cap">Cichlids · jewelfish cousins</span>
+          </button>
+          <button class="shot reveal" data-reveal data-reveal-delay="1" data-caption="A chick-egg (CAM) assay from my cancer-biology days. Those squiggles are blood vessels.">
+            <span class="shot__ph shot__ph--mouse" aria-hidden="true"></span>
+            <img src="images/camassay.png" alt="A chick CAM assay showing a network of blood vessels" onerror="this.remove()" />
+            <span class="shot__cap">In the lab · CAM assay</span>
+          </button>
+          <button class="shot reveal" data-reveal data-reveal-delay="2" data-caption="A Florida wetland at one of my field sites, all grass, water, and palms.">
+            <span class="shot__ph shot__ph--forest" aria-hidden="true"></span>
+            <img src="images/hero/hero1.jpg" alt="A Florida wetland with grasses, a pond, and palms" onerror="this.remove()" />
+            <span class="shot__cap">Florida wetland · field site</span>
+          </button>
+        </div>
+
+        <a href="#main" class="to-top" data-totop>↑ Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="section__wrap footer__inner">
+      <p class="footer__name">Pratush Brahma</p>
+      <p class="footer__tag">Behavioural ecology · evolution · natural history</p>
+      <p class="footer__copy">© <span id="year"></span> Pratush Brahma. Built from the field up.</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close viewer">×</button>
+    <div class="lightbox__inner">
+      <div id="lightboxMedia"></div>
+      <p class="lightbox__cap" id="lightboxCap"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pratush Brahma is an evolutionary behavioural ecologist at the University of Florida who studies how animals decide, from dynamic state variable models in invasive jewelfish to sensory ecology in jumping spiders." />
+  <meta name="author" content="Pratush Brahma" />
+  <meta name="theme-color" content="#16291c" />
+
+  <meta property="og:title" content="Pratush Brahma | Behavioural Ecologist" />
+  <meta property="og:description" content="How animals decide, from invasive jewelfish to jumping spiders: the work of an evolutionary behavioural ecologist at the University of Florida." />
+  <meta property="og:type" content="website" />
+
+  <title>Pratush Brahma | Behavioural Ecologist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand" aria-label="Pratush Brahma, home">
+        <span class="nav__mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><ellipse cx="6" cy="10.5" rx="1.7" ry="2.3"/><ellipse cx="9.7" cy="7.6" rx="1.8" ry="2.5"/><ellipse cx="14.3" cy="7.6" rx="1.8" ry="2.5"/><ellipse cx="18" cy="10.5" rx="1.7" ry="2.3"/><path d="M12 11.2c3 0 5.4 2 5.4 4.5 0 2-2.4 3.1-5.4 3.1S6.6 17.7 6.6 15.7c0-2.5 2.4-4.5 5.4-4.5z"/></svg></span>
+        <span class="nav__name">P. Brahma</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="nav__cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" data-parallax="0.25" aria-hidden="true"></div>
+      <div class="hero__veil" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="hero__eyebrow reveal" data-reveal>
+          <span class="hero__eyebrow-line" aria-hidden="true"></span>
+          How animals make decisions and what that tells us about evolution.
+        </p>
+        <h1 class="hero__title">
+          <span class="reveal" data-reveal data-reveal-delay="1">Pratush</span>
+          <span class="reveal hero__title--accent" data-reveal data-reveal-delay="2">Brahma</span>
+        </h1>
+        <div class="hero__tagline reveal" data-reveal data-reveal-delay="3">
+          <p>
+            I am an evolutionary behavioural ecologist, PhD, at the University of
+            Florida. I study how animals decide: what shapes the choice between
+            competing, caring, and foraging, and what those choices cost or earn in
+            fitness.
+          </p>
+          <p>
+            In the invasive African jewelfish, I build dynamic state variable
+            models (a stochastic dynamic programming approach) to predict
+            those decisions across changing population densities, then project them
+            forward into population-level outcomes. In jumping spiders, I test
+            empirically whether the sensory information those models assume, like
+            colour vision, is actually used to decide. My work runs from Florida
+            waterways to the Western Ghats of India.
+          </p>
+        </div>
+        <div class="hero__actions reveal" data-reveal data-reveal-delay="4">
+          <a href="research.html" class="btn btn--primary">View research</a>
+          <a href="about.html" class="btn btn--ghost">About me</a>
+        </div>
+      </div>
+
+      <a href="#field-systems" class="hero__scroll" aria-label="Scroll to explore">
+        <span class="hero__scroll-text">Scroll to explore</span>
+        <span class="hero__scroll-cue" aria-hidden="true"><span class="hero__scroll-dot"></span></span>
+      </a>
+    </section>
+
+    <!-- ============ ILLUSTRATED FIELD MAP ============ -->
+    <section class="field-systems" id="field-systems" aria-labelledby="field-systems-heading">
+      <div class="section__wrap">
+        <div class="field-systems__head">
+          <h2 class="field-systems__title reveal" data-reveal id="field-systems-heading">Field Systems</h2>
+          <p class="field-systems__subtitle reveal" data-reveal>Five organisms, one recurring question.</p>
+        </div>
+
+        <p class="field-systems__intro reveal" data-reveal>A career moves through habitats: explore the landscape.</p>
+
+        <div class="field-map reveal" data-reveal>
+          <!-- Hand-drawn landscape cross-section, five ecological zones. Hover/focus
+               previews the specimen tag; click (or a second tap on touch) goes to
+               research.html#anchor. -->
+          <svg class="field-map__svg" viewBox="0 0 1750 620" role="group" aria-labelledby="field-systems-heading" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="sketchy" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.014 0.03" numOctaves="2" seed="7" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="4.2" xChannelSelector="R" yChannelSelector="G" />
+              </filter>
+            </defs>
+
+            <!-- Horizon line, hand-drawn -->
+            <path class="fz-ground" filter="url(#sketchy)" d="M0,172 Q210,158 460,174 Q700,150 950,170 Q1180,156 1400,172 Q1560,160 1750,172" fill="none" stroke="var(--ink-stroke)" stroke-width="2" stroke-linecap="round" opacity="0.55" />
+
+            <!-- ============ ZONE: PHYLOGENETIC TREE (sky / margin) — anuran phylogenetics — tier 3, paired with the rock outcrop ============ -->
+            <a href="research.html#frogs" class="field-zone field-zone--phylo field-zone--minor" tabindex="4" aria-label="Microhylid frog phylogenetics: untangling a family tree. Open research."
+               data-sci="Microhylidae spp." data-q="How many species hide inside one name?">
+              <rect class="field-zone__hit" x="20" y="8" width="1710" height="160" rx="10" />
+              <g class="field-zone__art" fill="none" stroke="var(--ink-stroke)" stroke-width="1.5" stroke-linecap="round" opacity="0.65">
+                <path filter="url(#sketchy)" d="M985,158 L983,118" />
+                <path filter="url(#sketchy)" d="M983,118 L1032,96" />
+                <path filter="url(#sketchy)" d="M983,118 L978,84" />
+                <path filter="url(#sketchy)" d="M1032,96 L1080,78" />
+                <path filter="url(#sketchy)" d="M1032,96 L1036,60" />
+                <path filter="url(#sketchy)" d="M978,84 L1010,54" />
+                <path filter="url(#sketchy)" d="M978,84 L950,58" />
+                <circle cx="1080" cy="78" r="3" fill="var(--moss)" stroke="var(--ink-stroke)" stroke-width="1" />
+                <circle cx="1036" cy="60" r="3" fill="var(--moss)" stroke="var(--ink-stroke)" stroke-width="1" />
+                <circle cx="1010" cy="54" r="3" fill="var(--moss)" stroke="var(--ink-stroke)" stroke-width="1" />
+                <circle cx="950" cy="58" r="3" fill="var(--moss)" stroke="var(--ink-stroke)" stroke-width="1" />
+              </g>
+            </a>
+
+            <!-- ============ ZONE: ROCK OUTCROP — Psammophilus dorsalis — tier 3 ============ -->
+            <a href="research.html#agamas" class="field-zone field-zone--rock field-zone--minor" tabindex="1" aria-label="Rock agamas: turf wars on sun-baked boulders. Open research."
+               data-sci="Psammophilus dorsalis" data-q="Who controls the rock controls everything.">
+              <rect class="field-zone__hit" x="20" y="170" width="410" height="440" rx="10" />
+              <g class="field-zone__art" transform="translate(190,500) scale(0.9) translate(-190,-500)">
+                <path filter="url(#sketchy)" d="M55,610 L48,545 L70,505 L64,462 L108,428 L152,438 L182,405 L232,412 L256,438 L302,416 L332,448 L350,470 L344,522 L364,562 L358,610 Z"
+                      fill="var(--terracotta)" fill-opacity="0.26" stroke="var(--ink-stroke)" stroke-width="2.4" stroke-linejoin="round" />
+                <path filter="url(#sketchy)" d="M18,610 L24,566 L58,544 L92,558 L100,610 Z"
+                      fill="var(--terracotta)" fill-opacity="0.16" stroke="var(--ink-stroke)" stroke-width="2" stroke-linejoin="round" />
+                <path filter="url(#sketchy)" d="M232,412 L256,438 L302,416 L286,392 L250,388 Z"
+                      fill="var(--terracotta)" fill-opacity="0.38" stroke="var(--ink-stroke)" stroke-width="2" stroke-linejoin="round" />
+
+                <!-- lizard, perched on the top facet, facing left -->
+                <g class="zone-lizard">
+                  <path d="M275,406 Q300,412 316,398" fill="none" stroke="var(--ink-stroke)" stroke-width="2" stroke-linecap="round" />
+                  <ellipse cx="245" cy="404" rx="30" ry="10" fill="var(--ochre)" fill-opacity="0.55" stroke="var(--ink-stroke)" stroke-width="2" />
+                  <path d="M225,411 L219,421" stroke="var(--ink-stroke)" stroke-width="1.6" stroke-linecap="round" />
+                  <path d="M237,413 L232,423" stroke="var(--ink-stroke)" stroke-width="1.6" stroke-linecap="round" />
+                  <path d="M253,413 L258,423" stroke="var(--ink-stroke)" stroke-width="1.6" stroke-linecap="round" />
+                  <path d="M265,411 L271,421" stroke="var(--ink-stroke)" stroke-width="1.6" stroke-linecap="round" />
+                  <g class="zone-lizard__head" style="transform-box:view-box; transform-origin:220px 402px;">
+                    <path d="M220,402 Q205,395 195,402 Q205,409 220,406 Z" fill="var(--ochre)" fill-opacity="0.6" stroke="var(--ink-stroke)" stroke-width="2" stroke-linejoin="round" />
+                    <circle cx="203" cy="400" r="1.6" fill="var(--ink-stroke)" />
+                  </g>
+                </g>
+              </g>
+            </a>
+
+            <!-- ============ ZONE: FRESHWATER — Hemichromis letourneuxi — LEAD ZONE, the dissertation's central finding ============ -->
+            <a href="research.html#jewelfish" class="field-zone field-zone--water field-zone--lead" tabindex="2" aria-label="African jewelfish: the dissertation's central finding. Open research."
+               data-sci="Hemichromis letourneuxi" data-q="When does a father stop guarding his young?">
+              <rect class="field-zone__hit" x="450" y="170" width="410" height="440" rx="10" />
+              <g class="field-zone__art" transform="translate(655,490) scale(1.1) translate(-655,-490)">
+                <path d="M450,610 L450,440 Q530,410 620,428 Q700,405 780,430 Q830,415 860,440 L860,610 Z" fill="var(--slate-blue)" fill-opacity="0.2" stroke="none" />
+                <path class="zone-wave-a" filter="url(#sketchy)" d="M450,440 Q530,410 620,428 Q700,405 780,430 Q830,415 860,440" fill="none" stroke="var(--ink-stroke)" stroke-width="2.2" stroke-linecap="round" />
+                <path class="zone-wave-b" filter="url(#sketchy)" d="M470,470 Q550,452 630,466 Q710,448 790,468 Q820,458 845,470" fill="none" stroke="var(--slate-blue)" stroke-width="1.6" stroke-linecap="round" opacity="0.6" />
+
+                <path d="M470,440 Q466,410 476,382" fill="none" stroke="var(--moss)" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+                <path d="M486,440 Q483,404 496,378" fill="none" stroke="var(--moss)" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+                <path d="M826,440 Q830,406 820,380" fill="none" stroke="var(--moss)" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+                <path d="M842,440 Q846,412 838,386" fill="none" stroke="var(--moss)" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+
+                <g class="zone-fish">
+                  <path class="zone-fish__tail" style="transform-box:view-box; transform-origin:625px 485px;" d="M625,485 L604,471 L608,486 L604,501 Z" fill="var(--terracotta)" fill-opacity="0.6" stroke="var(--ink-stroke)" stroke-width="1.8" stroke-linejoin="round" />
+                  <path d="M625,485 Q640,470 665,474 Q681,478 686,486 Q681,494 665,497 Q640,501 625,485 Z" fill="var(--terracotta)" fill-opacity="0.75" stroke="var(--ink-stroke)" stroke-width="2" stroke-linejoin="round" />
+                  <path d="M655,474 L662,461 L669,475 Z" fill="var(--slate-blue)" fill-opacity="0.5" stroke="var(--ink-stroke)" stroke-width="1.4" stroke-linejoin="round" />
+                  <circle cx="637" cy="482" r="1.8" fill="var(--ink-stroke)" />
+                </g>
+              </g>
+            </a>
+
+            <!-- ============ ZONE: LEAF LITTER / FOREST FLOOR — Stenaelurillus lesserti (+ termite prey) — second tier ============ -->
+            <a href="research.html#spiders" class="field-zone field-zone--leaf field-zone--lead" tabindex="3" aria-label="Jumping spiders: a colour-sighted hunter among termite prey. Open research."
+               data-sci="Stenaelurillus lesserti" data-q="Can a spider that sees colour use it to hunt?">
+              <rect class="field-zone__hit" x="880" y="170" width="500" height="440" rx="10" />
+              <g class="field-zone__art">
+                <path d="M880,610 L880,540 Q1000,520 1130,536 Q1250,516 1380,538 L1380,610 Z" fill="var(--moss)" fill-opacity="0.15" stroke="none" />
+
+                <g stroke="var(--ink-stroke)" stroke-width="1.2" fill="var(--moss)" fill-opacity="0.5">
+                  <g transform="rotate(18 930 556)"><path filter="url(#sketchy)" d="M930,545 Q940,556 930,573 Q920,556 930,545 Z" /><path d="M930,548 L930,570" stroke-width="0.8" /></g>
+                  <g transform="rotate(-25 985 578)" fill="var(--ochre)" fill-opacity="0.55"><path filter="url(#sketchy)" d="M985,567 Q995,578 985,595 Q975,578 985,567 Z" /><path d="M985,570 L985,592" stroke-width="0.8" /></g>
+                  <g transform="rotate(40 1250 560)"><path filter="url(#sketchy)" d="M1250,549 Q1260,560 1250,577 Q1240,560 1250,549 Z" /><path d="M1250,552 L1250,574" stroke-width="0.8" /></g>
+                  <g transform="rotate(-10 1310 588)" fill="var(--ochre)" fill-opacity="0.55"><path filter="url(#sketchy)" d="M1310,577 Q1320,588 1310,605 Q1300,588 1310,577 Z" /><path d="M1310,580 L1310,602" stroke-width="0.8" /></g>
+                  <g transform="rotate(8 1050 598)"><path filter="url(#sketchy)" d="M1050,587 Q1060,598 1050,615 Q1040,598 1050,587 Z" /><path d="M1050,590 L1050,612" stroke-width="0.8" /></g>
+                </g>
+
+                <!-- termites: prey, visible but not separately clickable -->
+                <g fill="var(--ochre)" fill-opacity="0.65" stroke="var(--ink-stroke)" stroke-width="1.1">
+                  <ellipse cx="1205" cy="578" rx="6" ry="3.2" />
+                  <ellipse cx="1246" cy="594" rx="5.4" ry="2.9" />
+                  <ellipse cx="1172" cy="602" rx="5" ry="2.7" />
+                </g>
+
+                <!-- jumping spider -->
+                <g class="zone-spider">
+                  <g stroke="var(--ink-stroke)" stroke-width="1.3" stroke-linecap="round">
+                    <path d="M1112,545 L1090,536" />
+                    <path d="M1113,551 L1088,558" />
+                    <path d="M1127,551 L1148,560" />
+                    <path d="M1128,545 L1150,538" />
+                  </g>
+                  <g class="zone-spider__leg" style="transform-box:view-box; transform-origin:1108px 541px;" stroke="var(--ink-stroke)" stroke-width="1.5" stroke-linecap="round">
+                    <path d="M1108,541 L1084,524" />
+                    <path d="M1109,547 L1082,552" />
+                  </g>
+                  <ellipse cx="1120" cy="549" rx="9" ry="7.5" fill="var(--slate-blue)" fill-opacity="0.7" stroke="var(--ink-stroke)" stroke-width="1.8" />
+                  <circle cx="1108" cy="541" r="6" fill="var(--slate-blue)" fill-opacity="0.7" stroke="var(--ink-stroke)" stroke-width="1.6" />
+                  <circle cx="1105" cy="538" r="1.3" fill="var(--ink-stroke)" />
+                  <circle cx="1110" cy="537" r="1.3" fill="var(--ink-stroke)" />
+                </g>
+              </g>
+            </a>
+
+            <!-- ============ ZONE: LAB BENCH — FRG1 / tumor angiogenesis (mouse models) — tier 4, where the empirical training began ============ -->
+            <a href="research.html#cancer" class="field-zone field-zone--lab field-zone--minor" tabindex="5" aria-label="Cancer angiogenesis research: where the empirical training began. Open research."
+               data-sci="FRG1 &middot; tumor angiogenesis" data-q="How does one gene rewire a tumor&rsquo;s blood supply?">
+              <rect class="field-zone__hit" x="1390" y="170" width="340" height="440" rx="10" />
+              <g class="field-zone__art">
+                <path d="M1390,610 L1390,560 Q1480,542 1560,556 Q1650,540 1730,558 L1730,610 Z" fill="var(--mouse)" fill-opacity="0.12" stroke="none" />
+
+                <!-- ex-ovo CAM view: a dish of membrane with a branching vessel network -->
+                <circle cx="1560" cy="330" r="92" fill="var(--terracotta)" fill-opacity="0.07" stroke="var(--ink-stroke)" stroke-width="1.6" opacity="0.6" filter="url(#sketchy)" />
+                <g stroke="var(--terracotta)" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.85">
+                  <path filter="url(#sketchy)" d="M1560,404 L1558,362" />
+                  <path filter="url(#sketchy)" d="M1558,362 L1522,336" />
+                  <path filter="url(#sketchy)" d="M1522,336 L1498,308" />
+                  <path filter="url(#sketchy)" d="M1522,336 L1510,300" />
+                  <path filter="url(#sketchy)" d="M1558,362 L1598,340" />
+                  <path filter="url(#sketchy)" d="M1598,340 L1624,312" />
+                  <path filter="url(#sketchy)" d="M1598,340 L1612,374" />
+                </g>
+                <g class="zone-mouse__pulse" fill="var(--terracotta)" fill-opacity="0.7" stroke="var(--ink-stroke)" stroke-width="0.8">
+                  <circle cx="1498" cy="308" r="2.6" />
+                  <circle cx="1510" cy="300" r="2.6" />
+                  <circle cx="1624" cy="312" r="2.6" />
+                  <circle cx="1612" cy="374" r="2.6" />
+                </g>
+
+                <!-- mouse silhouette -->
+                <g class="zone-mouse">
+                  <path d="M1600,548 Q1560,562 1522,552" fill="none" stroke="var(--ink-stroke)" stroke-width="1.5" stroke-linecap="round" />
+                  <ellipse cx="1620" cy="522" rx="55" ry="29" fill="var(--mouse)" fill-opacity="0.55" stroke="var(--ink-stroke)" stroke-width="2" />
+                  <circle cx="1675" cy="507" r="21" fill="var(--mouse)" fill-opacity="0.55" stroke="var(--ink-stroke)" stroke-width="2" />
+                  <ellipse cx="1667" cy="483" rx="8" ry="10" fill="var(--mouse)" fill-opacity="0.6" stroke="var(--ink-stroke)" stroke-width="1.6" />
+                  <ellipse cx="1685" cy="486" rx="8" ry="10" fill="var(--mouse)" fill-opacity="0.6" stroke="var(--ink-stroke)" stroke-width="1.6" />
+                  <circle cx="1682" cy="504" r="1.6" fill="var(--ink-stroke)" />
+                </g>
+              </g>
+            </a>
+          </svg>
+        </div>
+
+        <figure class="field-finding reveal" data-reveal>
+          <p class="field-finding__label">The central finding: jewelfish</p>
+          <blockquote class="field-finding__quote">
+            <p>One might expect crowded conditions to force animals to economise on energy, investing less in costly parental care as food grows scarce. My models of male jewelfish show something else: at high density, mating opportunities arrive so often that the real cost of the 14 timesteps spent caring for young is not the energy it demands but every encounter passed up while occupied. Time, not energy, becomes the binding constraint. In females, the underlying driver is different: decisions track the net fitness benefit of each option directly, and females grow choosier about mating with caring males as density rises, even when that tactic is not the one initially preferred.</p>
+            <p>Projected forward into population growth, these individual decisions carry real demographic consequences: a population locked into a &ldquo;low-density&rdquo; behavioural strategy collapses (0% adult survival) if it ever meets high-density conditions, a real risk for species recovering from decline. In contrast, a population locked into a &ldquo;high-density&rdquo; strategy performs almost as well as one that adapts perfectly, because its high fecundity leaves little time to pay for being mismatched. That asymmetry suggests a testable hypothesis: successful invaders may not need to be behaviourally flexible at all.</p>
+          </blockquote>
+          <figcaption><a href="research.html#jewelfish">Read the full research &rarr;</a></figcaption>
+        </figure>
+
+        <ul class="about__stats field-systems__stats reveal" data-reveal>
+          <li><span class="about__stat-num">2</span><span class="about__stat-label">Papers published</span></li>
+          <li><span class="about__stat-num">5</span><span class="about__stat-label">Manuscripts in prep</span></li>
+          <li><span class="about__stat-num">2</span><span class="about__stat-label">Countries I have worked in</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ EXPLORE TILES ============ -->
+    <section class="explore" aria-labelledby="explore-heading">
+      <div class="section__wrap">
+        <p class="section__kicker reveal" data-reveal>Where to next?</p>
+        <h2 class="section__title reveal" data-reveal id="explore-heading">Explore the work</h2>
+
+        <div class="explore__grid">
+          <a href="about.html" class="explore__tile reveal" data-reveal>
+            <span class="explore__tile-num">01</span>
+            <h3 class="explore__tile-title">About</h3>
+            <p class="explore__tile-text">How I came to study animal behaviour, and the questions that drive me.</p>
+            <span class="explore__tile-arrow">Read more →</span>
+          </a>
+          <a href="research.html" class="explore__tile reveal" data-reveal data-reveal-delay="1">
+            <span class="explore__tile-num">02</span>
+            <h3 class="explore__tile-title">Research</h3>
+            <p class="explore__tile-text">The organisms, the models, and what each project revealed.</p>
+            <span class="explore__tile-arrow">View projects →</span>
+          </a>
+          <a href="publications.html" class="explore__tile reveal" data-reveal data-reveal-delay="2">
+            <span class="explore__tile-num">03</span>
+            <h3 class="explore__tile-title">Publications</h3>
+            <p class="explore__tile-text">Published papers and manuscripts in submission.</p>
+            <span class="explore__tile-arrow">Browse papers →</span>
+          </a>
+          <a href="experience.html" class="explore__tile reveal" data-reveal data-reveal-delay="3">
+            <span class="explore__tile-num">04</span>
+            <h3 class="explore__tile-title">Experience</h3>
+            <p class="explore__tile-text">Positions, fieldwork appointments, and teaching.</p>
+            <span class="explore__tile-arrow">See roles →</span>
+          </a>
+          <a href="news.html" class="explore__tile reveal" data-reveal>
+            <span class="explore__tile-num">05</span>
+            <h3 class="explore__tile-title">News</h3>
+            <p class="explore__tile-text">Recent talks, awards, and outreach.</p>
+            <span class="explore__tile-arrow">See updates →</span>
+          </a>
+          <a href="gallery.html" class="explore__tile reveal" data-reveal data-reveal-delay="2">
+            <span class="explore__tile-num">06</span>
+            <h3 class="explore__tile-title">Gallery</h3>
+            <p class="explore__tile-text">Photographs from the field and the lab.</p>
+            <span class="explore__tile-arrow">View gallery →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="section__wrap footer__inner">
+      <p class="footer__name">Pratush Brahma</p>
+      <p class="footer__tag">Behavioural ecology · evolution · natural history</p>
+      <p class="footer__copy">© <span id="year"></span> Pratush Brahma. Built from the field up.</p>
+    </div>
+  </footer>
+
+  <!-- Floating specimen-tag label for the field map -->
+  <div class="specimen-tag" id="specimenTag" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

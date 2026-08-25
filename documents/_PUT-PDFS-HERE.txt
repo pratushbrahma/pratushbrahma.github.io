@@ -1,0 +1,20 @@
+DOCUMENTS (PDFs)
+================
+
+A place for downloadable files — your CV, paper reprints, your thesis, etc.
+
+YOUR CV
+-------
+Your CV download button currently uses the file named "Brahma_CV.pdf" in the
+MAIN project folder (one level up from here), and it already works. To update
+it, just replace that file with a newer one of the SAME name.
+
+If you'd prefer to keep the CV in this folder instead, move Brahma_CV.pdf here
+and tell me — I'll repoint the download buttons to documents/Brahma_CV.pdf.
+
+ADDING OTHER PDFs (e.g. paper reprints)
+---------------------------------------
+1. Drop the PDF here, e.g.  documents/Brahma-2023-FRG1.pdf
+2. On publications.html, the relevant paper can link to it. Tell me the file
+   name and which paper, or add a link yourself like:
+       <a href="documents/Brahma-2023-FRG1.pdf" class="pub__link">PDF</a>

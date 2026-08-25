@@ -1,0 +1,17 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+
+# Dependencies (none expected for this static site, excluded if ever added)
+node_modules/
+
+# AI-tooling working directories (build process, not site content)
+.claude/
+.impeccable/
+
+# Unpublished thesis — not for public distribution
+Pratush_Final_Thesis_Clear_Prior.pdf

@@ -1,0 +1,28 @@
+GALLERY PHOTOS
+==============
+
+The Gallery page has 8 frames already wired to the filenames below. Drop a
+photo with the matching name into THIS folder and it appears in that frame
+automatically (refresh the browser). Any frame without a file keeps its
+coloured placeholder.
+
+  FRAME                         ->  FILE NAME (use exactly)
+  ----------------------------------------------------------------
+  Jumping spider (S. lesserti)  ->  jumping-spider.jpg
+  Termite mound (Odontotermes)  ->  termite-mound.jpg
+  African jewelfish             ->  african-jewelfish.jpg
+  Rock agama                    ->  rock-agama.jpg
+  Microhylid frog               ->  microhylid-frog.jpg
+  Fieldwork in Bengaluru        ->  fieldwork-bengaluru.jpg
+  In the lab (foraging trials)  ->  lab-trials.jpg
+  Portrait / in the field       ->  in-the-field.jpg
+
+WANT TO CHANGE A CAPTION?
+  Open gallery.html and edit the words inside <span class="shot__cap">...</span>
+  (and the data-caption="..." on the same frame, which is shown in the pop-up).
+
+WANT MORE THAN 8 PHOTOS?
+  Open gallery.html, copy one whole <button class="shot"> ... </button> block,
+  paste it, and change the image name + caption. Then drop the new file here.
+
+Tip: .jpg, ~1600 px wide, under ~500 KB. Names lowercase, no spaces.

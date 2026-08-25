@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Selected publications by Pratush Brahma, filterable by year and topic." />
+  <meta name="theme-color" content="#16291c" />
+  <title>Publications | Pratush Brahma</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="inner">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header is-scrolled" id="siteHeader">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand" aria-label="Pratush Brahma, home">
+        <span class="nav__mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><ellipse cx="6" cy="10.5" rx="1.7" ry="2.3"/><ellipse cx="9.7" cy="7.6" rx="1.8" ry="2.5"/><ellipse cx="14.3" cy="7.6" rx="1.8" ry="2.5"/><ellipse cx="18" cy="10.5" rx="1.7" ry="2.3"/><path d="M12 11.2c3 0 5.4 2 5.4 4.5 0 2-2.4 3.1-5.4 3.1S6.6 17.7 6.6 15.7c0-2.5 2.4-4.5 5.4-4.5z"/></svg></span>
+        <span class="nav__name">P. Brahma</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html" aria-current="page">Publications</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="nav__cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="page-hero">
+      <div class="page-hero__wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> / <span>Publications</span>
+        </nav>
+        <h1 class="page-hero__title reveal" data-reveal>My <em>papers</em></h1>
+        <p class="page-hero__lead reveal" data-reveal>
+          The ones I&rsquo;ve published, and the ones still cooking.
+        </p>
+      </div>
+    </div>
+
+    <section class="section publications" aria-labelledby="pub-heading">
+      <div class="section__wrap">
+        <h2 class="section__title reveal" data-reveal id="pub-heading" style="margin-bottom:2rem">The papers</h2>
+
+        <div class="filters reveal" data-reveal>
+          <div class="filters__group" role="group" aria-label="Filter by status or year">
+            <span class="filters__label">Status</span>
+            <div class="filters__chips" data-filter-set="year">
+              <button class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+              <button class="chip" data-filter="inprep" aria-pressed="false">In prep</button>
+              <button class="chip" data-filter="2023" aria-pressed="false">2023</button>
+              <button class="chip" data-filter="2018" aria-pressed="false">2018</button>
+            </div>
+          </div>
+          <div class="filters__group" role="group" aria-label="Filter by topic">
+            <span class="filters__label">Topic</span>
+            <div class="filters__chips" data-filter-set="topic">
+              <button class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+              <button class="chip" data-filter="behaviour" aria-pressed="false">Behaviour &amp; sensory</button>
+              <button class="chip" data-filter="modelling" aria-pressed="false">Modelling</button>
+              <button class="chip" data-filter="molecular" aria-pressed="false">Molecular biology</button>
+            </div>
+          </div>
+        </div>
+
+        <ol class="pub-list" id="pubList">
+          <li class="pub" data-year="inprep" data-topic="behaviour">
+            <span class="pub__year">In&nbsp;prep</span>
+            <div class="pub__body">
+              <h3 class="pub__title">The use of colour in foraging in Lessert&rsquo;s Rainbow Spider (<em>Stenaelurillus lesserti</em>)</h3>
+              <p class="pub__plain"><b>In plain words:</b> does a spider&rsquo;s colour vision help it hunt? Surprisingly, no.</p>
+              <p class="pub__meta"><span class="pub__authors">Brahma, P.</span>, Lietzenmayer, L., Menon, Y., St. Mary, C. M., Uma, D. &amp; Taylor, L. &middot; <em>Manuscript in preparation</em></p>
+            </div>
+            <span class="pub__topic">Behaviour</span>
+          </li>
+
+          <li class="pub" data-year="inprep" data-topic="modelling">
+            <span class="pub__year">In&nbsp;prep</span>
+            <div class="pub__body">
+              <h3 class="pub__title">Predicting state-dependent variation in male reproductive strategies based on changes in population density</h3>
+              <p class="pub__plain"><b>In plain words:</b> how crowding changes the way male fish play the mating game.</p>
+              <p class="pub__meta"><span class="pub__authors">Brahma, P.</span> &amp; St. Mary, C. M. &middot; <em>Manuscript in preparation</em></p>
+            </div>
+            <span class="pub__topic">Modelling</span>
+          </li>
+
+          <li class="pub" data-year="inprep" data-topic="modelling">
+            <span class="pub__year">In&nbsp;prep</span>
+            <div class="pub__body">
+              <h3 class="pub__title">Predicting the influence of population density on female reproductive tactics using an optimization approach</h3>
+              <p class="pub__plain"><b>In plain words:</b> the same question for females: how do they adjust when the pond gets crowded?</p>
+              <p class="pub__meta"><span class="pub__authors">Brahma, P.</span> &amp; St. Mary, C. M. &middot; <em>Manuscript in preparation</em></p>
+            </div>
+            <span class="pub__topic">Modelling</span>
+          </li>
+
+          <li class="pub" data-year="inprep" data-topic="modelling">
+            <span class="pub__year">In&nbsp;prep</span>
+            <div class="pub__body">
+              <h3 class="pub__title">Population viability analysis of density-dependent variation in reproductive behaviour</h3>
+              <p class="pub__plain"><b>In plain words:</b> do these breeding choices help a whole population survive and spread?</p>
+              <p class="pub__meta"><span class="pub__authors">Brahma, P.</span> &amp; St. Mary, C. M. &middot; <em>Manuscript in preparation</em></p>
+            </div>
+            <span class="pub__topic">Modelling</span>
+          </li>
+
+          <li class="pub" data-year="inprep" data-topic="behaviour">
+            <span class="pub__year">In&nbsp;prep</span>
+            <div class="pub__body">
+              <h3 class="pub__title">Does colour vision improve jumping spiders&rsquo; ability to find coloured prey on coloured backgrounds?</h3>
+              <p class="pub__plain"><b>In plain words:</b> can spiders spot colourful bugs hiding against colourful backdrops?</p>
+              <p class="pub__meta">Lietzenmayer, L., Persad, A., Stone, K., Krausman, Z., Willer, A., Faustino, C., <span class="pub__authors">Brahma, P.</span> &amp; Taylor, L. &middot; <em>Manuscript in preparation</em></p>
+              <div class="pub__links"><a href="https://osf.io/5ny82" class="pub__link">Preregistration (OSF)</a></div>
+            </div>
+            <span class="pub__topic">Behaviour</span>
+          </li>
+
+          <li class="pub" data-year="2023" data-topic="molecular">
+            <span class="pub__year">2023</span>
+            <div class="pub__body">
+              <h3 class="pub__title">Reduced FRG1 expression promotes angiogenesis via activation of the FGF2-mediated ERK/AKT pathway</h3>
+              <p class="pub__plain"><b>In plain words:</b> how a gene called FRG1 affects the blood vessels that feed tumours.</p>
+              <p class="pub__meta">Mukherjee, B., <span class="pub__authors">Brahma, P.</span>, Mohapatra, T., Chawla, S. &amp; Dixit, M. &middot; <em>FEBS Open Bio</em>, 13(5), 804&ndash;817</p>
+              <div class="pub__links"><a href="#" class="pub__link">DOI</a></div>
+            </div>
+            <span class="pub__topic">Molecular</span>
+          </li>
+
+          <li class="pub" data-year="2018" data-topic="molecular">
+            <span class="pub__year">2018</span>
+            <div class="pub__body">
+              <h3 class="pub__title">A cost-effective and efficient chick ex-ovo CAM assay protocol to assess angiogenesis</h3>
+              <p class="pub__plain"><b>In plain words:</b> a cheap, simple recipe for studying blood-vessel growth using chicken eggs.</p>
+              <p class="pub__meta">Naik, M.<sup>&dagger;</sup>, <span class="pub__authors">Brahma, P.<sup>&dagger;</sup></span> &amp; Dixit, M. &middot; <em>Methods and Protocols</em>, 1(2), 19 &middot; <span class="pub__note">&dagger;&nbsp;equal contribution</span></p>
+              <div class="pub__links"><a href="#" class="pub__link">DOI</a></div>
+            </div>
+            <span class="pub__topic">Molecular</span>
+          </li>
+        </ol>
+
+        <p class="pub-list__empty" id="pubEmpty" hidden>No publications match these filters.</p>
+        <a href="#main" class="to-top" data-totop>↑ Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="section__wrap footer__inner">
+      <p class="footer__name">Pratush Brahma</p>
+      <p class="footer__tag">Behavioural ecology · evolution · natural history</p>
+      <p class="footer__copy">© <span id="year"></span> Pratush Brahma. Built from the field up.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

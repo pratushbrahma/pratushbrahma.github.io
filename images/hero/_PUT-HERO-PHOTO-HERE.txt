@@ -1,0 +1,13 @@
+HERO BANNER PHOTO
+=================
+
+Drop ONE file here, named exactly:
+
+    hero.jpg
+
+This is the dramatic full-screen background behind your name on the home
+page. Choose a wide, landscape photo (a field/habitat shot works best).
+Don't worry about it being too bright — the site automatically darkens it
+so the white text stays readable.
+
+If no file is here, the home page shows the green gradient placeholder.

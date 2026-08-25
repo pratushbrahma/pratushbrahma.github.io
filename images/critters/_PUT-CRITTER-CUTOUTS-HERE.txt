@@ -1,0 +1,31 @@
+CRITTER CUTOUTS (the animals that crawl across the home page)
+=============================================================
+
+When you click an animal on the home-page habitat map, it scuttles across
+the screen and opens that research. By default it uses a little emoji. Drop a
+realistic cutout here and it will use that instead, automatically.
+
+Use transparent-background PNGs (the animal cut out, no square background),
+named exactly:
+
+    spider.png      (jumping spider)
+    jewelfish.png   (African jewelfish)
+    frog.png        (a frog)
+    agama.png       (rock agama)
+    termite.png     (termite)
+    mouse.png       (mouse)
+
+No file for an animal = it keeps using the emoji. Nothing breaks either way.
+
+GOOD SIZE: roughly 200-400 px on the longest side, under ~150 KB each.
+
+WHERE TO GET THEM (free, with credit):
+  - iNaturalist (inaturalist.org): find a photo licensed CC-BY or CC0, then
+    cut out the animal (remove.bg or any photo editor) and save as PNG.
+  - PhyloPic (phylopic.org): clean silhouettes of organisms, many CC0. These
+    look great as simple, naturalist shapes.
+  - Wikimedia Commons: search the species, filter by reusable licenses.
+
+Please keep a note of the photographer/author and license for anything that
+is CC-BY, so you can credit them (a small credits line on the page is fine,
+just tell me and I will add it).

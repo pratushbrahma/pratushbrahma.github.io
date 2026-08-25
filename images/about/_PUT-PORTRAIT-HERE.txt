@@ -1,0 +1,11 @@
+ABOUT-PAGE PORTRAIT
+===================
+
+Drop ONE file here, named exactly:
+
+    portrait.jpg
+
+This is your photo on the About page. A vertical (portrait-orientation)
+shot works best, since the frame is taller than it is wide.
+
+If no file is here, the About page shows the gradient "PORTRAIT" placeholder.
