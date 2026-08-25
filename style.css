@@ -279,6 +279,12 @@ h1, h2, h3 {
   position: relative;
   transition: color 0.2s var(--ease-out);
 }
+/* Scoped to the transparent (pre-scroll) header only, over the hero photo —
+   the scrolled/mobile-panel states sit on solid parchment and don't need it. */
+.site-header:not(.is-scrolled) .nav__brand,
+.site-header:not(.is-scrolled) .nav__menu a {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+}
 .nav__menu a::after {
   content: "";
   position: absolute;
@@ -366,8 +372,13 @@ h1, h2, h3 {
   position: absolute;
   inset: 0;
   z-index: -2;
+  /* The 35% stop used to fall below the hero's text content (eyebrow, name,
+     then tagline) and only had to keep the photo readable as a photo there.
+     With the eyebrow and name removed, the vertically-centered bio text now
+     sits across that exact band, so it needs the same legibility floor as
+     the darker top and bottom stops, not a deliberately faint "window". */
   background:
-    linear-gradient(180deg, rgba(14,28,19,0.55) 0%, rgba(14,28,19,0.15) 35%, rgba(14,28,19,0.85) 100%);
+    linear-gradient(180deg, rgba(14,28,19,0.55) 0%, rgba(14,28,19,0.6) 35%, rgba(14,28,19,0.85) 100%);
 }
 .hero__grain {
   position: absolute;
@@ -409,20 +420,22 @@ h1, h2, h3 {
   font-weight: 400;
   color: var(--hero-accent-warm);
 }
-@media (min-width: 860px) {
-  .hero__title { font-size: max(var(--fs-hero), 5rem); }
-}
 .hero__tagline {
   max-width: 62ch;
-  font-size: var(--fs-lead);
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.8;
   color: rgba(247, 243, 232, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
   font-weight: 300;
   margin-bottom: 2.5rem;
 }
 .hero__tagline p + p { margin-top: 1rem; }
+@media (min-width: 860px) {
+  .hero__tagline { font-size: 1.2rem; }
+}
 .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
-.hero .btn--ghost { border-color: rgba(247, 243, 232, 0.5); color: var(--hero-ink); }
+.hero .btn { font-size: 1rem; padding: 0.85rem 2rem; }
+.hero .btn--ghost { border-color: rgba(247, 243, 232, 0.5); color: var(--hero-ink); text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55); }
 .hero .btn--ghost:hover {
   border-color: var(--hero-accent-warm);
   color: var(--hero-accent-warm);
@@ -439,6 +452,7 @@ h1, h2, h3 {
   align-items: center;
   gap: 0.8rem;
   color: var(--hero-ink-faint);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
 }
 .hero__scroll-text {
   font-family: var(--font-display);
@@ -482,6 +496,12 @@ h1, h2, h3 {
   margin-bottom: 0.5rem;
 }
 .section__title { font-size: var(--fs-h2); margin-bottom: 1.2rem; }
+@media (min-width: 860px) {
+  /* max(), not a flat override: --fs-h2's own clamp already exceeds 2.5rem
+     past ~1150px wide, so a flat value would shrink it there. This raises
+     the floor to 2.5rem without capping the existing fluid growth above it. */
+  .explore .section__title { font-size: max(2.5rem, var(--fs-h2)); }
+}
 .section__lead { font-size: var(--fs-lead); color: var(--text-dim); max-width: 52ch; }
 
 /* Gentle banding between sections, over the aged-paper backdrop */
@@ -972,9 +992,12 @@ body.inner { padding-top: var(--header-h); }
 .field-systems__title {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: var(--fs-h1-section);
+  font-size: 2.2rem;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
+}
+@media (min-width: 860px) {
+  .field-systems__title { font-size: 3rem; }
 }
 .field-systems__subtitle {
   font-family: var(--font-display);
@@ -1205,7 +1228,7 @@ body.inner { padding-top: var(--header-h); }
   letter-spacing: -0.02em;
   margin: 0.9rem 0 0.6rem;
 }
-.explore__tile-text { font-size: 0.92rem; font-weight: 300; color: var(--text-dim); }
+.explore__tile-text { font-size: 0.95rem; line-height: 1.7; font-weight: 300; color: var(--text-dim); }
 .explore__tile-arrow { display: inline-block; margin-top: 1.1rem; color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem; }
 
 /* =========================================================
