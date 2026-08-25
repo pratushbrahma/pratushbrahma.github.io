@@ -26,10 +26,9 @@ You edit text files and refresh your browser. That's it.
 | `publications.html` | Publications list + filters |
 | `experience.html` | Positions, teaching, honours |
 | `activities.html` | Outreach, NPTEL, conferences |
-| `gallery.html` | Photo gallery + lightbox |
 | `contact.html` | Contact + CV + form |
 | **`style.css`** | **All colours, fonts, spacing, layout — the whole look** |
-| **`script.js`** | All interactivity (menu, reveals, filters, lightbox) |
+| **`script.js`** | All interactivity (menu, reveals, filters) |
 | `Brahma_CV.pdf` | Your CV (the download button points here) |
 
 > **Golden rule:** change one thing, save, refresh, look. Small steps are easy to
@@ -135,24 +134,12 @@ appears. No file = the coloured placeholder stays. Nothing ever breaks.
 |------------------|---------------|-------------|
 | `images/hero/` | `hero.jpg` | Home-page banner background |
 | `images/about/` | `portrait.jpg` | Your About-page portrait |
-| `images/gallery/` | `jumping-spider.jpg`, `african-jewelfish.jpg`, … | Gallery frames |
 
 Each folder also contains a small `_PUT-…-HERE.txt` note listing exactly what it
-wants (the Gallery one lists all 8 filenames). **Steps:** drop the file in →
-save/refresh the browser → done.
+wants. **Steps:** drop the file in → save/refresh the browser → done.
 
 **Photo tips:** use `.jpg`, resize to about 1600 px wide and under ~500 KB so the
 site stays fast, and use the exact lowercase names (no spaces).
-
-### Captions
-Captions live in `gallery.html`. For any frame, edit the words inside
-`<span class="shot__cap">…</span>` and the `data-caption="…"` on the same
-`<button>` (that text shows in the click-to-enlarge pop-up).
-
-### More than 8 gallery photos
-Open `gallery.html`, copy one whole `<button class="shot"> … </button>` block,
-paste it, then change the image filename in `src="images/gallery/…"` and the
-caption. Drop the matching file into `images/gallery/`.
 
 ### PDFs (CV, reprints)
 There's also a `documents/` folder with its own note. Your CV button already

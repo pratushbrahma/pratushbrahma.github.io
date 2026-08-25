@@ -276,66 +276,6 @@
     });
   });
 
-  /* ---------- Gallery lightbox ---------- */
-  const lightbox = document.getElementById("lightbox");
-  const shots = document.querySelectorAll(".shot");
-  if (lightbox && shots.length) {
-    const media = document.getElementById("lightboxMedia");
-    const cap = document.getElementById("lightboxCap");
-    const closeBtn = document.getElementById("lightboxClose");
-    let lastFocused = null;
-
-    const openLightbox = (shot) => {
-      lastFocused = shot;
-      const caption = shot.getAttribute("data-caption") || "";
-      const full = shot.getAttribute("data-full");
-      const img = shot.querySelector("img");
-      media.innerHTML = "";
-
-      if (full || img) {
-        const big = document.createElement("img");
-        big.className = "lightbox__media";
-        big.src = full || img.getAttribute("src");
-        big.alt = (img && img.getAttribute("alt")) || caption;
-        media.appendChild(big);
-      } else {
-        // No image yet — enlarge the colored placeholder
-        const ph = shot.querySelector(".shot__ph");
-        const block = document.createElement("div");
-        block.className = "lightbox__media lightbox__media--ph";
-        if (ph) {
-          ph.classList.forEach((c) => {
-            if (c.startsWith("shot__ph--")) block.classList.add(c);
-          });
-        }
-        media.appendChild(block);
-      }
-
-      cap.textContent = caption;
-      lightbox.classList.add("is-open");
-      document.body.style.overflow = "hidden";
-      closeBtn.focus();
-    };
-
-    const closeLightbox = () => {
-      lightbox.classList.remove("is-open");
-      document.body.style.overflow = "";
-      media.innerHTML = "";
-      if (lastFocused) lastFocused.focus();
-    };
-
-    shots.forEach((shot) =>
-      shot.addEventListener("click", () => openLightbox(shot))
-    );
-    closeBtn.addEventListener("click", closeLightbox);
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
-    });
-  }
-
   /* ---------- Active nav link on scroll (scroll spy) ---------- */
   const sections = document.querySelectorAll("main section[id]");
   const navLinks = document.querySelectorAll('.nav__menu a[href^="#"]');

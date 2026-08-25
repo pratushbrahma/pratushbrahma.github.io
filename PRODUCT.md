@@ -32,21 +32,21 @@ Studies how individual animals make decisions — allocating time and energy to 
 ## Capabilities and Constraints
 
 - Static site: plain HTML/CSS/JS, no framework, no build tooling. This is a confirmed constraint, not an open decision — preserve it unless Pratush decides otherwise.
-- Current sections: About, Research (project cards), Publications (filterable list), Experience, News, Gallery (photo + lightbox), Contact (with CV download). Field Notes was removed sitewide (2026-08-24) — the homepage's interactive field map is now the sole gateway into Research.
-- Image pipeline is pre-wired to specific filenames under `images/{hero,about,gallery,critters}/`. Some slots are already filled with real photos (hero, portrait, several study species); others (`about/portrait`, full `gallery/`, `critters/`) are still placeholder slots awaiting real photos.
+- Current sections: About, Research (project cards), Publications (filterable list), Experience, News, Contact (with CV download). Field Notes was removed sitewide (2026-08-24) — the homepage's interactive field map is now the sole gateway into Research. The standalone Gallery page and homepage nav-card grid were both removed (2026-08-25) — the site owner does not plan to maintain a growing photo gallery.
+- Image pipeline is pre-wired to specific filenames under `images/{hero,about,critters}/`. Some slots are already filled with real photos (hero, portrait, several study species); others (`about/portrait`, `critters/`) are still placeholder slots awaiting real photos.
 - Terminology pairs common names with species names (e.g., "African jewelfish", *Stenaelurillus lesserti*) — keep this convention.
 
 ## Brand Commitments
 
-- Identity: Pratush Brahma, rendered as "P. Brahma" in the nav mark.
+- Identity: Pratush Brahma, rendered as "Pratush Brahma, PhD" in the nav mark.
 - Standing tagline: "Behavioural ecology · evolution · natural history."
 - No institutional branding constraints beyond the University of Florida affiliation being current and accurate.
 
 ## Evidence on Hand
 
 - Real assets in the repo: CV (`Brahma_CV.pdf`), thesis draft (`Brahma_Pratush_Thesis.docx`), a manuscript in prep, two publication PDFs, two collaboration-project PDFs, and a resume.
-- About-page stats currently claimed: 2 papers published, 5 manuscripts in prep, 2 countries worked in (USA, India). Keep these synced to reality as they change — do not round up or embellish.
-- Real photography exists for the hero, portrait, and several study species (jewelfish, jumping spider, rock agamas). The `about/portrait`, full `gallery/`, and `critters/` image slots are still unfilled placeholders — future work must not fabricate images for these gaps; leave the placeholder behavior intact until real photos are supplied.
+- About-page stats currently claimed: 2 papers published, 5 manuscripts in prep. The homepage and About page's "countries worked in" stat was removed (2026-08-25). Keep these synced to reality as they change — do not round up or embellish.
+- Real photography exists for the hero, portrait, and several study species (jewelfish, jumping spider, rock agamas). The `about/portrait` and `critters/` image slots are still unfilled placeholders — future work must not fabricate images for these gaps; leave the placeholder behavior intact until real photos are supplied.
 
 ## Product Principles
 
