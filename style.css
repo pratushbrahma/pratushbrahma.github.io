@@ -263,8 +263,9 @@ h1, h2, h3 {
   font-weight: 600;
   color: var(--hero-ink); /* light by default, for over the dark hero */
 }
-.nav__mark { color: var(--accent); display: inline-flex; align-items: center; }
+.nav__mark { color: var(--accent); display: inline-flex; align-items: center; transition: color 300ms var(--ease-out); }
 .nav__mark svg { display: block; transform: rotate(-12deg); }
+.nav__brand:hover .nav__mark { color: var(--accent-warm); }
 .nav__menu {
   list-style: none;
   display: flex;
@@ -277,7 +278,7 @@ h1, h2, h3 {
   font-weight: 500;
   color: var(--hero-ink-dim); /* light over hero */
   position: relative;
-  transition: color 0.2s var(--ease-out);
+  transition: color 300ms var(--ease-out);
 }
 /* Scoped to the transparent (pre-scroll) header only, over the hero photo —
    the scrolled/mobile-panel states sit on solid parchment and don't need it. */
@@ -671,7 +672,7 @@ h1, h2, h3 {
 .tag--habitat { color: #3d5636; }
 .tag--method  { color: #7a5d2e; }
 .tag--phase {
-  color: var(--accent-warm);
+  color: #705c44; /* darkened from --accent-warm (#8c7355) to clear 4.5:1 AA against this tinted background */
   background: rgba(140, 115, 85, 0.12);
   border-color: rgba(140, 115, 85, 0.35);
   text-transform: uppercase;
@@ -702,13 +703,16 @@ h1, h2, h3 {
 .chip {
   font-family: var(--font-mono);
   font-size: 0.8rem;
+  min-height: 44px;
   padding: 0.4rem 0.95rem;
+  display: inline-flex;
+  align-items: center;
   border-radius: 999px;
   background: transparent;
   border: 1.5px solid var(--line);
   color: var(--text-dim);
   cursor: pointer;
-  transition: all 0.25s var(--ease);
+  transition: border-color 300ms var(--ease), color 300ms var(--ease), background 300ms var(--ease);
 }
 .chip:hover { border-color: var(--accent); color: var(--text); }
 .chip.is-active {
@@ -751,7 +755,7 @@ h1, h2, h3 {
   color: var(--text-dim);
   border-bottom: 1px solid var(--line);
   padding-bottom: 2px;
-  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+  transition: color 300ms var(--ease), border-color 300ms var(--ease);
 }
 .pub__link:hover { color: var(--accent); border-color: var(--accent); }
 .pub__topic {
@@ -771,52 +775,6 @@ h1, h2, h3 {
   color: var(--text-muted);
   font-style: italic;
 }
-
-/* =========================================================
-   FIELD NOTES
-   ========================================================= */
-.notes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-.note {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.8rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  position: relative;
-  transition: transform 0.4s var(--ease), border-color 0.4s var(--ease);
-}
-.note::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 1.8rem; right: 1.8rem;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  border-radius: 0 0 4px 4px;
-}
-.note:hover { transform: translateY(-5px); border-color: var(--accent-warm); }
-.note__date {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent-warm);
-}
-.note__title { font-family: var(--font-display); font-size: var(--fs-h3); }
-.note__excerpt { font-size: 0.95rem; color: var(--text-dim); flex: 1; }
-.note__more {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--accent);
-  margin-top: auto;
-  transition: gap 0.2s var(--ease);
-}
-.note__more:hover { text-decoration: underline; }
 
 /* =========================================================
    CONTACT
@@ -843,7 +801,7 @@ h1, h2, h3 {
   text-transform: uppercase;
   color: var(--text-muted);
 }
-.contact__links a { color: var(--text); font-size: 1.1rem; transition: color 0.2s var(--ease); }
+.contact__links a { color: var(--text); font-size: 1.1rem; transition: color 300ms var(--ease); }
 .contact__links a:hover { color: var(--accent); }
 
 .contact__cv-card {
@@ -969,7 +927,7 @@ body.inner { padding-top: var(--header-h); }
   gap: 0.5rem;
   align-items: center;
 }
-.breadcrumb a { color: var(--text-muted); transition: color 0.2s var(--ease); }
+.breadcrumb a { color: var(--text-muted); transition: color 300ms var(--ease); }
 .breadcrumb a:hover { color: var(--accent); }
 .breadcrumb span { color: var(--accent); }
 .page-hero__title { font-size: var(--fs-h2); margin-bottom: 1rem; max-width: 20ch; }
@@ -1020,6 +978,16 @@ body.inner { padding-top: var(--header-h); }
   box-shadow: 0 30px 60px -40px rgba(28, 28, 26, 0.4);
 }
 .field-map__svg { display: block; width: 100%; height: auto; }
+
+@media (max-width: 640px) {
+  /* At full-width scaling, the map's 1750:620 aspect ratio renders under
+     130px tall on a phone — the hand-drawn zones become illegible and their
+     hit areas too small to tap accurately. Below 640px, hold the map at a
+     legible fixed height and let it scroll horizontally instead of shrinking
+     to fit, the same way a wide table scrolls rather than compresses. */
+  .field-map { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+  .field-map__svg { width: auto; height: 260px; max-width: none; }
+}
 
 /* Zone hover surface: brighten + hairline border, never a hard highlight */
 .field-zone { cursor: pointer; }
@@ -1134,9 +1102,12 @@ body.inner { padding-top: var(--header-h); }
      to land nearby. */
   transform-origin: bottom center;
   transform: translateY(8px) scale(0.97);
-  /* Exit is quicker than entry — a considered arrival, an immediate
-     dismissal — the same asymmetry as every other authored motion here. */
-  transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out);
+  /* Exit is quicker than entry, but not so quick it outruns the zone's own
+     300ms dim-down — at 160ms the tag used to vanish a beat before the zone
+     finished settling, which read as two things leaving separately rather
+     than one gesture retracting. 220ms keeps the "immediate dismissal" feel
+     while landing close enough to the zone's own exit to stay paired. */
+  transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
 }
 .specimen-tag--below { transform-origin: top center; transform: translateY(-8px) scale(0.97); }
 .specimen-tag.is-visible {
@@ -1178,7 +1149,7 @@ body.inner { padding-top: var(--header-h); }
   color: var(--accent);
   border-bottom: 1px solid var(--line);
   padding-bottom: 2px;
-  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+  transition: color 300ms var(--ease), border-color 300ms var(--ease);
 }
 .field-finding figcaption a:hover { color: var(--accent-soft); border-color: var(--accent-soft); }
 
@@ -1254,6 +1225,13 @@ body.inner { padding-top: var(--header-h); }
   overflow: hidden;
   display: grid;
   place-items: end start;
+  transition: transform 0.4s var(--ease), border-color 0.4s var(--ease),
+              box-shadow 0.4s var(--ease);
+}
+.plate:hover, .plate:focus-visible {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 22px 44px -28px rgba(28, 28, 26, 0.3);
 }
 .plate span {
   position: relative;
@@ -1283,7 +1261,7 @@ body.inner { padding-top: var(--header-h); }
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--text-muted);
-  transition: color 0.2s var(--ease);
+  transition: color 300ms var(--ease);
 }
 .to-top:hover { color: var(--accent); }
 
@@ -1395,7 +1373,7 @@ body.inner { padding-top: var(--header-h); }
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.35rem 0.8rem;
-  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+  transition: border-color 300ms var(--ease), color 300ms var(--ease);
 }
 .note__btn:hover { border-color: var(--accent); color: var(--accent-warm); }
 
@@ -1496,7 +1474,7 @@ body.inner { padding-top: var(--header-h); }
   color: var(--hero-ink);
   font-size: 1.4rem;
   cursor: pointer;
-  transition: border-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
+  transition: border-color 300ms var(--ease-out), color 300ms var(--ease-out);
 }
 .lightbox__close:hover { border-color: var(--hero-accent-warm); color: var(--hero-accent-warm); }
 

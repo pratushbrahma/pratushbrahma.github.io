@@ -120,7 +120,7 @@
         <div class="study-grid">
           <figure class="study-card reveal" data-reveal>
             <div class="study-card__frame">
-              <img class="study-card__img" src="images/rockagamas.jpg" alt="A rock agama on a sun-baked boulder" onerror="this.remove()" />
+              <img class="study-card__img" src="images/rockagamas.jpg" alt="A rock agama on a sun-baked boulder" loading="lazy" onerror="this.remove()" />
             </div>
             <figcaption>
               <p class="study-card__name"><em>Agama agama</em></p>
@@ -129,7 +129,7 @@
           </figure>
           <figure class="study-card reveal" data-reveal data-reveal-delay="1">
             <div class="study-card__frame">
-              <img class="study-card__img" src="images/jewelfish.jpg" alt="A red African jewelfish with blue spots" onerror="this.remove()" />
+              <img class="study-card__img" src="images/jewelfish.jpg" alt="A red African jewelfish with blue spots" loading="lazy" onerror="this.remove()" />
             </div>
             <figcaption>
               <p class="study-card__name"><em>Hemichromis letourneuxi</em></p>
@@ -138,7 +138,7 @@
           </figure>
           <figure class="study-card reveal" data-reveal data-reveal-delay="2">
             <div class="study-card__frame">
-              <img class="study-card__img" src="images/jumpingspider.jpeg" alt="A colourful jumping spider photographed up close" onerror="this.remove()" />
+              <img class="study-card__img" src="images/jumpingspider.jpeg" alt="A colourful jumping spider photographed up close" loading="lazy" onerror="this.remove()" />
             </div>
             <figcaption>
               <p class="study-card__name"><em>Stenaelurillus lesserti</em></p>
@@ -147,7 +147,7 @@
           </figure>
           <figure class="study-card reveal" data-reveal data-reveal-delay="3">
             <div class="study-card__frame">
-              <img class="study-card__img" src="images/microhylidae.jpg" alt="A microhylid frog" onerror="this.remove()" />
+              <img class="study-card__img" src="images/microhylidae.jpg" alt="A microhylid frog" loading="lazy" onerror="this.remove()" />
             </div>
             <figcaption>
               <p class="study-card__name"><em>Microhylidae sp.</em></p>
@@ -163,17 +163,20 @@
         <div class="section__head">
           <p class="section__kicker reveal" data-reveal>Snapshots</p>
           <h2 class="section__title reveal" data-reveal id="path-heading">A few of my favourites</h2>
-          <p class="section__lead reveal" data-reveal>The animals and places that made me the biologist I am.</p>
+          <p class="section__lead reveal" data-reveal>The animals and places that made me the biologist I am &mdash; more in the full gallery.</p>
         </div>
         <div class="gallery-grid">
-          <div class="plate plate--jewel reveal" data-reveal><span>African jewelfish · invasion models</span></div>
-          <div class="plate plate--spider reveal" data-reveal data-reveal-delay="1"><span>Jumping spiders · colour vision</span></div>
-          <div class="plate plate--agama reveal" data-reveal data-reveal-delay="2"><span>Rock agamas · competition</span></div>
-          <div class="plate plate--termite reveal" data-reveal data-reveal-delay="3"><span>Termites · spider prey</span></div>
-          <div class="plate plate--frog reveal" data-reveal data-reveal-delay="4"><span>Microhylid frogs · phylogenetics</span></div>
-          <div class="plate plate--mouse reveal" data-reveal data-reveal-delay="5"><span>Mice · angiogenesis models</span></div>
+          <a href="gallery.html" class="plate plate--jewel reveal" data-reveal><span>African jewelfish · invasion models</span></a>
+          <a href="gallery.html" class="plate plate--spider reveal" data-reveal data-reveal-delay="1"><span>Jumping spiders · colour vision</span></a>
+          <a href="gallery.html" class="plate plate--agama reveal" data-reveal data-reveal-delay="2"><span>Rock agamas · competition</span></a>
+          <a href="gallery.html" class="plate plate--termite reveal" data-reveal data-reveal-delay="3"><span>Termites · spider prey</span></a>
+          <a href="gallery.html" class="plate plate--frog reveal" data-reveal data-reveal-delay="4"><span>Microhylid frogs · phylogenetics</span></a>
+          <a href="gallery.html" class="plate plate--mouse reveal" data-reveal data-reveal-delay="5"><span>Mice · angiogenesis models</span></a>
         </div>
-        <a href="research.html" class="btn btn--primary" style="margin-top:2.5rem">See the research →</a>
+        <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="gallery.html" class="btn btn--primary">View full gallery →</a>
+          <a href="research.html" class="btn btn--ghost">See the research →</a>
+        </div>
       </div>
     </section>
   </main>
