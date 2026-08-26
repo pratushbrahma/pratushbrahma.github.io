@@ -39,16 +39,19 @@
   /* ---------- Mobile nav ---------- */
   const toggle = document.getElementById("navToggle");
   const menu = document.getElementById("navMenu");
+  const overlay = document.getElementById("navOverlay");
 
   const closeMenu = () => {
     if (!toggle || !menu) return;
     menu.classList.remove("is-open");
+    if (overlay) overlay.classList.remove("is-open");
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-label", "Open menu");
   };
   const openMenu = () => {
     if (!toggle || !menu) return;
     menu.classList.add("is-open");
+    if (overlay) overlay.classList.add("is-open");
     toggle.setAttribute("aria-expanded", "true");
     toggle.setAttribute("aria-label", "Close menu");
   };
@@ -62,6 +65,8 @@
     menu.querySelectorAll("a").forEach((link) =>
       link.addEventListener("click", closeMenu)
     );
+    // Close when tapping the dimmed backdrop
+    if (overlay) overlay.addEventListener("click", closeMenu);
     // Close on Escape
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeMenu();

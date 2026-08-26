@@ -856,7 +856,7 @@ h1, h2, h3 {
 }
 
 @media (max-width: 980px) {
-  .nav__toggle { display: flex; }
+  .nav__toggle { display: flex; z-index: 1001; }
   .nav__menu {
     position: fixed;
     inset: 0 0 0 auto;
@@ -866,16 +866,41 @@ h1, h2, h3 {
     justify-content: center;
     gap: 2rem;
     padding: 2rem var(--gutter);
-    background: var(--parchment);
+    background: var(--parchment); /* solid, opaque — never transparent */
     border-left: 1px solid var(--line);
     transform: translateX(100%);
     transition: transform 0.4s var(--ease);
-    z-index: 105;
+    z-index: 1000;
   }
   .nav__menu.is-open { transform: translateX(0); }
-  .nav__menu a { display: block; padding: 10px 0; font-size: 1.2rem; color: var(--text); } /* ~44px tap height */
-  .nav__menu a:hover,
-  .nav__menu a[aria-current="page"] { color: var(--accent); }
+
+  /* Dims and separates the page content behind the open sidebar; tapping it closes the menu (see script.js). */
+  .nav__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 28, 26, 0.55);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 250ms var(--ease-out), visibility 250ms var(--ease-out);
+  }
+  .nav__overlay.is-open { opacity: 1; visibility: visible; }
+
+  /* !important here beats .site-header.is-scrolled .nav__menu a[color rules],
+     which are unguarded by a media query and otherwise win on inner pages
+     (every inner page's header carries is-scrolled from first paint). */
+  .nav__menu a {
+    display: block;
+    padding: 10px 12px;
+    margin: 0 -12px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    color: var(--text) !important;
+    background-color: transparent;
+    transition: color 300ms var(--ease-out), background-color 250ms var(--ease-out);
+  } /* ~44px tap height */
+  .nav__menu a:hover { background-color: rgba(59, 82, 64, 0.12); }
+  .nav__menu a[aria-current="page"] { color: var(--accent) !important; }
   .nav__cta { color: var(--text) !important; }
 
   .pub { grid-template-columns: 1fr; gap: 0.5rem; }
