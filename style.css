@@ -654,6 +654,7 @@ h1, h2, h3 {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
 }
+.card__swatch-img--frog { object-position: center; filter: sepia(8%) contrast(0.96); }
 .card__swatch--jewel   { background: linear-gradient(135deg, var(--jewel), var(--jewel-d)); }
 .card__swatch--spider  { background: linear-gradient(135deg, var(--spider), var(--spider-d)); }
 .card__swatch--agama   { background: linear-gradient(135deg, var(--agama), var(--agama-d)); }
@@ -1237,6 +1238,7 @@ body.inner { padding-top: var(--header-h); }
   object-fit: cover;
   z-index: 1;
 }
+.study-card__img--frog { object-position: center; filter: sepia(8%) contrast(0.96); }
 .study-card figcaption { margin-top: 0.9rem; }
 .study-card__name {
   font-family: var(--font-display);
