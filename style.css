@@ -162,6 +162,29 @@ h1, h2, h3 {
   letter-spacing: -0.02em;
 }
 
+/* Flowing paragraph text (bio copy, research/about descriptions, lead-ins)
+   reads as justified body text site-wide. Captions, specimen/species-name
+   labels, kickers, footer meta, and timeline/publication metadata are
+   single-line label content, not prose, so they're excluded below. */
+p { text-align: justify; }
+.hero__eyebrow,
+.section__kicker,
+.about__caption,
+.study-card__name,
+.study-card__caption,
+.field-finding__label,
+.footer__name,
+.footer__tag,
+.footer__copy,
+.tl-date,
+.tl-org,
+.role-card__meta,
+.role-card__sub,
+.pub__meta,
+.pub-list__empty {
+  text-align: inherit;
+}
+
 ::selection { background: var(--accent); color: var(--on-accent); }
 
 /* ---------- Accessibility helpers ---------- */
@@ -403,13 +426,17 @@ h1, h2, h3 {
   box-shadow: 0 14px 28px -18px rgba(28, 28, 26, 0.25);
 }
 
-/* Portrait: a flush, full-height panel on the right half at desktop width,
-   same treatment as the About page's photo. The seam-side (left) edge
-   fades into the bio panel's parchment ground so the two halves don't
-   read as a hard cut; the outer edge stays a clean crop. */
+/* Portrait: a deep-green panel on the right half at desktop width, framing
+   the portrait with the site's forest-green accent so the hero reads as
+   two colour panels (parchment / forest green), not one flat page. The
+   seam-side (left) edge fades into the bio panel's parchment ground so
+   the two halves don't read as a hard cut; the outer edge stays a clean crop. */
 .hero__portrait-panel {
   position: relative;
   z-index: 1;
+  background: var(--accent);
+  padding: clamp(1rem, 2.4vw, 1.85rem);
+  box-sizing: border-box;
 }
 .hero__portrait {
   width: 100%;
@@ -417,6 +444,7 @@ h1, h2, h3 {
   object-fit: cover;
   object-position: center top;
   display: block;
+  border-radius: var(--radius);
   filter: sepia(8%) contrast(0.96);
 }
 .hero__portrait-panel::before {
@@ -445,6 +473,8 @@ h1, h2, h3 {
     max-width: 280px;
     aspect-ratio: 4 / 5;
     margin: 0 auto 1.5rem;
+    padding: 0.65rem;
+    border-radius: var(--radius);
   }
   .hero__portrait-panel::before { content: none; }
 }
@@ -454,6 +484,7 @@ h1, h2, h3 {
   left: 50%;
   bottom: 2.2rem;
   transform: translateX(-50%);
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
