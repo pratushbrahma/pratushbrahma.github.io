@@ -170,7 +170,8 @@ Warm, muted, and paper-toned. Nothing in the working palette reads as saturated 
 **Character:** A classical book serif carrying all display weight, paired with a quiet, well-mannered grotesque for everything functional. The pairing reads as "scholarly monograph," never "editorial magazine" or "startup landing page" — EB Garamond's italic is used constantly as a voice of its own (kickers, captions, pull-quote labels), not just for emphasis.
 
 ### Hierarchy
-- **Hero Display** (400, `clamp(3rem, 11vw, 9rem)`, 0.94 line-height): The name/title treatment on the home hero only — the site's single largest, most dramatic type moment, set in italic for the accent line.
+- **Hero Display** (400, `clamp(3rem, 11vw, 9rem)`, 0.94 line-height): Retired from the home hero (removed along with the old headline/name treatment; the token stays defined in case a future section wants a comparably dramatic moment, but nothing currently uses it).
+- **Hero Name** (500, `clamp(1.7rem, 2.6vw, 2.2rem)`, -0.01em tracking): The `<h1>` identity line in the home hero — deliberately restrained rather than a dramatic display moment, paired with the italic-kicker eyebrow above it.
 - **Display** (500, `clamp(1.9rem, 4.5vw, 3.4rem)`, 1.08 line-height): Section titles (`h2`) throughout inner pages.
 - **Title** (500, `clamp(1.15rem, 2vw, 1.45rem)`, 1.08 line-height): Card and note titles (`h3`).
 - **Body** (400, 1.05rem, 1.75 line-height): All running prose; comfortably wide leading for long-form reading.

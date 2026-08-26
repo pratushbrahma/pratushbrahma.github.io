@@ -344,82 +344,49 @@ h1, h2, h3 {
 .nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* =========================================================
-   HERO (kept dark and immersive; light text over a photo)
+   HERO (dark green ground, editorial split with the portrait;
+   collapses to a floating portrait card over bio text on mobile)
    ========================================================= */
 .hero {
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: linear-gradient(160deg, #0c1a11 0%, var(--green-800) 55%, #0c1a11 100%);
   overflow: hidden;
-  isolation: isolate;
-}
-.hero__bg {
-  position: absolute;
-  inset: -10% 0 -10% 0;
-  z-index: -3;
-  background:
-    radial-gradient(120% 90% at 70% 10%, rgba(140, 115, 85, 0.16), transparent 55%),
-    radial-gradient(120% 120% at 15% 90%, rgba(59, 82, 64, 0.30), transparent 50%),
-    linear-gradient(160deg, rgba(12,26,17,0.55), rgba(22,41,28,0.30) 45%, rgba(12,26,17,0.80)),
-    url("images/habitat.jpg"),
-    linear-gradient(160deg, #0c1a11 0%, var(--green-800) 45%, #0c1a11 100%);
-  background-size: cover;
-  background-position: center;
-  will-change: transform;
-}
-.hero__veil {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  /* The 35% stop used to fall below the hero's text content (eyebrow, name,
-     then tagline) and only had to keep the photo readable as a photo there.
-     With the eyebrow and name removed, the vertically-centered bio text now
-     sits across that exact band, so it needs the same legibility floor as
-     the darker top and bottom stops, not a deliberately faint "window". */
-  background:
-    linear-gradient(180deg, rgba(14,28,19,0.55) 0%, rgba(14,28,19,0.6) 35%, rgba(14,28,19,0.85) 100%);
 }
 .hero__grain {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   opacity: 0.05;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-.hero__inner {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: calc(var(--header-h) + 1.5rem) var(--gutter) clamp(4rem, 11vh, 7.5rem);
-  width: 100%;
+.hero__bio {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 640px;
+  padding: calc(var(--header-h) + 2rem) clamp(1.5rem, 4vw, 3.5rem) clamp(3rem, 8vh, 5rem) var(--gutter);
 }
 .hero__eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.4rem;
-  color: var(--hero-accent);
-  margin-bottom: 1.3rem;
-  max-width: 40ch;
-}
-.hero__eyebrow-line { width: 38px; height: 2px; border-radius: 2px; background: var(--hero-accent-line); display: inline-block; flex: 0 0 auto; }
-.hero__title {
-  font-size: var(--fs-hero);
-  font-weight: 400;
-  line-height: 0.94;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.8rem;
-  color: var(--hero-ink);
-}
-.hero__title span { display: block; }
-.hero__title--accent {
-  font-style: italic;
-  font-weight: 400;
+  font-size: 1.15rem;
   color: var(--hero-accent-warm);
+  margin-bottom: 0.85rem;
+}
+.hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+  font-weight: 500;
+  color: var(--hero-ink);
+  margin-bottom: 1.1rem;
+  letter-spacing: -0.01em;
 }
 .hero__tagline {
   max-width: 62ch;
@@ -440,7 +407,57 @@ h1, h2, h3 {
 .hero .btn--ghost:hover {
   border-color: var(--hero-accent-warm);
   color: var(--hero-accent-warm);
-  box-shadow: 0 14px 28px -18px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 14px 28px -18px rgba(28, 28, 26, 0.45);
+}
+/* Default focus ring (--accent, a dark forest green) fails contrast against
+   the hero's near-black canopy gradient; swap to the light hero-ink here,
+   same local-override pattern already used for .field-zone. */
+.hero :focus-visible { outline-color: var(--hero-ink); }
+
+/* Portrait: a flush, full-height panel on the right half at desktop width.
+   The seam-side (left) edge fades into the bio panel's ground so the two
+   halves don't read as a hard cut; the outer edge stays a clean crop. */
+.hero__portrait-panel {
+  position: relative;
+  z-index: 1;
+}
+.hero__portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(8%) contrast(0.96);
+}
+.hero__portrait-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 22%;
+  background: linear-gradient(90deg, var(--green-800), transparent);
+  pointer-events: none;
+}
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero__bio {
+    max-width: none;
+    text-align: center;
+    padding: calc(var(--header-h) + 1.5rem) var(--gutter) clamp(3rem, 9vh, 5rem);
+  }
+  .hero__actions { justify-content: center; }
+
+  /* Collapses from a full-height panel into a small floating portrait
+     card sitting above the bio text, rather than a wide banner image. */
+  .hero__portrait-panel {
+    order: -1;
+    width: 132px;
+    height: 170px;
+    margin: 0 auto 1.5rem;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 14px 30px -18px rgba(28, 28, 26, 0.4);
+  }
+  .hero__portrait-panel::before { content: none; }
 }
 
 .hero__scroll {
@@ -863,9 +880,11 @@ h1, h2, h3 {
     width: min(78vw, 320px);
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    /* flex-start (not center) + a top pad that just clears the toggle button,
+       so "About" sits near the top of the panel instead of floating mid-screen. */
+    justify-content: flex-start;
     gap: 2rem;
-    padding: 2rem var(--gutter);
+    padding: calc(var(--header-h) + 0.75rem) var(--gutter) 2rem;
     background: var(--parchment); /* solid, opaque — never transparent */
     border-left: 1px solid var(--line);
     transform: translateX(100%);
@@ -1479,7 +1498,6 @@ body::after {
     scroll-behavior: auto !important;
   }
   .reveal { opacity: 1; transform: none; }
-  .hero__bg { transform: none !important; }
   .zone-wave-a, .zone-wave-b, .zone-fish__tail { animation: none !important; }
   .zone-lizard__head.is-turning, .zone-spider__leg.is-twitching, .zone-mouse__pulse.is-pulsing circle { animation: none !important; }
   /* View-transition pseudo-elements live outside the document tree — the
