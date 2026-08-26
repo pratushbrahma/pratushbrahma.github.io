@@ -19,22 +19,23 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- Condensing header on scroll ----------
-     Only index.html's header starts transparent (over the dark hero) and
-     needs to condense to solid parchment as the user scrolls past it. Every
-     inner page's header already carries "is-scrolled" in its static markup
-     because it has no hero to be transparent over — it must stay solid from
-     first paint. Gating on the presence of .hero stops this handler from
-     forcing that class off at scrollY 0 on every other page, which was
-     stripping the nav's readable background and text color before the user
-     ever scrolled. */
+     Only a page whose header starts transparent (over a dark hero) needs to
+     condense to solid parchment as the user scrolls past it. Every page's
+     header that already carries "is-scrolled" in its static markup — which
+     now includes index.html, since the hero moved onto the parchment ground
+     too — must stay solid from first paint; running the dynamic toggle on
+     it would force the class off at scrollY 0 and strip the nav's readable
+     background before the user ever scrolls. */
   const header = document.getElementById("siteHeader");
   const hasHero = document.querySelector(".hero");
+  const startsScrolled = header && header.classList.contains("is-scrolled");
+  const needsCrossfade = hasHero && !startsScrolled;
   const onScrollHeader = () => {
-    if (!header || !hasHero) return;
+    if (!needsCrossfade) return;
     header.classList.toggle("is-scrolled", window.scrollY > 24);
   };
   onScrollHeader();
-  if (hasHero) window.addEventListener("scroll", onScrollHeader, { passive: true });
+  if (needsCrossfade) window.addEventListener("scroll", onScrollHeader, { passive: true });
 
   /* ---------- Mobile nav ---------- */
   const toggle = document.getElementById("navToggle");

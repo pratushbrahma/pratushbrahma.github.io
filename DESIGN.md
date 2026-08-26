@@ -229,7 +229,7 @@ Buttons, cards, chips/tags, and notes all share one grammar: hairline border at 
 - **Focus:** Border shifts to forest green; no glow or ring.
 
 ### Navigation
-- **Style:** Fixed header, transparent over the dark hero (light text) that crossfades to a blurred parchment bar with ink text once scrolled. Active/hover links get an animated underline that scales in from the left in the accent color. Mobile collapses to a slide-in parchment panel from the right.
+- **Style:** Fixed header, solid blurred parchment bar with ink text from first paint on every page (the homepage hero moved onto the parchment ground too, so there's no dark backdrop left to be transparent over). Active/hover links get an animated underline that scales in from the left in the accent color. Mobile collapses to a slide-in parchment panel from the right. The transparent-over-dark-hero / scroll-crossfade capability still exists in the CSS and JS for a future page that reintroduces a genuinely dark, immersive hero — it's just unused while every page starts `is-scrolled`.
 
 ## Do's and Don'ts
 

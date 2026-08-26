@@ -344,8 +344,9 @@ h1, h2, h3 {
 .nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* =========================================================
-   HERO (dark green ground, editorial split with the portrait;
-   collapses to a floating portrait card over bio text on mobile)
+   HERO (editorial split on the parchment ground, matching the About
+   page's portrait treatment; collapses to a centred stacked portrait
+   over bio text on mobile)
    ========================================================= */
 .hero {
   position: relative;
@@ -353,16 +354,9 @@ h1, h2, h3 {
   min-height: 100svh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: linear-gradient(160deg, #0c1a11 0%, var(--green-800) 55%, #0c1a11 100%);
+  background: var(--parchment);
+  border-bottom: 1px solid var(--line);
   overflow: hidden;
-}
-.hero__grain {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.05;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 .hero__bio {
   position: relative;
@@ -377,14 +371,14 @@ h1, h2, h3 {
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.15rem;
-  color: var(--hero-accent-warm);
+  color: var(--accent);
   margin-bottom: 0.85rem;
 }
 .hero__name {
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 2.6vw, 2.2rem);
   font-weight: 500;
-  color: var(--hero-ink);
+  color: var(--text);
   margin-bottom: 1.1rem;
   letter-spacing: -0.01em;
 }
@@ -392,8 +386,7 @@ h1, h2, h3 {
   max-width: 62ch;
   font-size: 1.05rem;
   line-height: 1.8;
-  color: rgba(247, 243, 232, 0.9);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  color: var(--text-dim);
   font-weight: 300;
   margin-bottom: 2.5rem;
 }
@@ -403,20 +396,17 @@ h1, h2, h3 {
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
 .hero .btn { font-size: 1rem; padding: 0.85rem 2rem; }
-.hero .btn--ghost { border-color: rgba(247, 243, 232, 0.5); color: var(--hero-ink); text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55); }
+.hero .btn--ghost { border-color: var(--line); color: var(--text); }
 .hero .btn--ghost:hover {
-  border-color: var(--hero-accent-warm);
-  color: var(--hero-accent-warm);
-  box-shadow: 0 14px 28px -18px rgba(28, 28, 26, 0.45);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 14px 28px -18px rgba(28, 28, 26, 0.25);
 }
-/* Default focus ring (--accent, a dark forest green) fails contrast against
-   the hero's near-black canopy gradient; swap to the light hero-ink here,
-   same local-override pattern already used for .field-zone. */
-.hero :focus-visible { outline-color: var(--hero-ink); }
 
-/* Portrait: a flush, full-height panel on the right half at desktop width.
-   The seam-side (left) edge fades into the bio panel's ground so the two
-   halves don't read as a hard cut; the outer edge stays a clean crop. */
+/* Portrait: a flush, full-height panel on the right half at desktop width,
+   same treatment as the About page's photo. The seam-side (left) edge
+   fades into the bio panel's parchment ground so the two halves don't
+   read as a hard cut; the outer edge stays a clean crop. */
 .hero__portrait-panel {
   position: relative;
   z-index: 1;
@@ -425,6 +415,7 @@ h1, h2, h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
   filter: sepia(8%) contrast(0.96);
 }
@@ -433,7 +424,7 @@ h1, h2, h3 {
   position: absolute;
   inset: 0;
   width: 22%;
-  background: linear-gradient(90deg, var(--green-800), transparent);
+  background: linear-gradient(90deg, var(--parchment), transparent);
   pointer-events: none;
 }
 
@@ -446,16 +437,14 @@ h1, h2, h3 {
   }
   .hero__actions { justify-content: center; }
 
-  /* Collapses from a full-height panel into a small floating portrait
-     card sitting above the bio text, rather than a wide banner image. */
+  /* Stacks above the bio text, centred, capped at 280px regardless of
+     which portrait option is in play. */
   .hero__portrait-panel {
     order: -1;
-    width: 132px;
-    height: 170px;
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 4 / 5;
     margin: 0 auto 1.5rem;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 14px 30px -18px rgba(28, 28, 26, 0.4);
   }
   .hero__portrait-panel::before { content: none; }
 }
@@ -469,8 +458,7 @@ h1, h2, h3 {
   flex-direction: column;
   align-items: center;
   gap: 0.8rem;
-  color: var(--hero-ink-faint);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  color: var(--text-muted);
 }
 .hero__scroll-text {
   font-family: var(--font-display);
@@ -481,7 +469,7 @@ h1, h2, h3 {
 .hero__scroll-cue {
   width: 24px;
   height: 38px;
-  border: 1.5px solid rgba(247, 243, 232, 0.6);
+  border: 1.5px solid var(--line);
   border-radius: 999px;
   display: flex;
   justify-content: center;
@@ -491,7 +479,7 @@ h1, h2, h3 {
   width: 4px;
   height: 8px;
   border-radius: 999px;
-  background: var(--hero-accent-warm);
+  background: var(--accent-warm);
   animation: scrollDot 1.8s var(--ease) infinite;
 }
 @keyframes scrollDot {
@@ -530,15 +518,25 @@ h1, h2, h3 {
   align-items: start;
 }
 .about__media { position: sticky; top: calc(var(--header-h) + 2rem); }
+/* Editorial full-bleed plate — no border, no shadow at rest (the purest
+   form of the Flat-Until-Touched rule); a soft gradient fades its seam-side
+   (right) edge into the parchment page ground instead of a hard card cut. */
 .about__photo {
   aspect-ratio: 4 / 5;
-  border-radius: var(--radius-lg);
+  overflow: hidden;
   background:
     radial-gradient(80% 60% at 30% 20%, rgba(176,86,46,0.18), transparent 60%),
     linear-gradient(160deg, #cdbf9e, #9c8b6a);
-  border: 1px solid var(--line);
-  box-shadow: 0 24px 50px -30px rgba(28, 28, 26, 0.35);
   position: relative;
+}
+.about__photo::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  z-index: 2;
+  width: 22%;
+  background: linear-gradient(90deg, transparent, var(--parchment));
+  pointer-events: none;
 }
 .about__photo::after {
   content: "PORTRAIT";
@@ -557,7 +555,8 @@ h1, h2, h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: inherit;
+  object-position: center top;
+  filter: sepia(8%) contrast(0.96);
   z-index: 1;
 }
 .about__caption {
@@ -868,7 +867,8 @@ h1, h2, h3 {
    ========================================================= */
 @media (max-width: 900px) {
   .about__grid { grid-template-columns: 1fr; }
-  .about__media { position: static; max-width: 360px; }
+  .about__media { position: static; max-width: 280px; margin: 0 auto; }
+  .about__photo::before { content: none; }
   .contact__grid { grid-template-columns: 1fr; }
 }
 
