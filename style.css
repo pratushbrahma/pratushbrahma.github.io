@@ -259,13 +259,30 @@ p { text-align: justify; }
   height: var(--header-h);
   display: flex;
   align-items: center;
-  transition: background 0.4s var(--ease), border-color 0.4s var(--ease),
-              backdrop-filter 0.4s var(--ease);
   border-bottom: 1px solid transparent;
+  transition: border-color 0.4s var(--ease);
 }
-.site-header.is-scrolled {
+/* The blurred/tinted bar lives on this pseudo-element rather than directly on
+   .site-header. A `backdrop-filter` on .site-header itself would make it the
+   containing block for any `position: fixed` descendant (the mobile nav
+   panel and its overlay both live inside <header>) — collapsing them to the
+   header's own 72px box instead of the full viewport. Every inner page's
+   header carries is-scrolled from first paint, so this bug was live
+   everywhere, not just after scrolling. Keeping the filter off .site-header
+   itself and on this decorative layer instead fixes the sidebar's stacking
+   context without changing how the header looks. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transition: background 0.4s var(--ease), backdrop-filter 0.4s var(--ease);
+}
+.site-header.is-scrolled::before {
   background: rgba(242, 235, 218, 0.9);
   backdrop-filter: blur(12px);
+}
+.site-header.is-scrolled {
   border-bottom-color: var(--line);
 }
 .nav {
@@ -463,8 +480,33 @@ p { text-align: justify; }
     text-align: center;
     /* The portrait panel (order: -1, below) is the first element in visual
        order here, so it — not this — carries the fixed-navbar clearance. */
-    padding: 1.5rem var(--gutter) clamp(3rem, 9vh, 5rem);
+    padding: 2.5rem var(--gutter) clamp(3rem, 9vh, 5rem);
+    /* Full-bleed forest-green panel behind the bio text, restored for the
+       stacked mobile layout — the site's one accent color, so it stays off
+       the portrait panel above (kept neutral) rather than doubling up. */
+    background-color: var(--accent);
   }
+  .hero__eyebrow,
+  .hero__name { color: var(--on-accent); }
+  .hero__tagline {
+    color: var(--on-accent);
+    /* A touch of transparency (still the same cream) so the three-paragraph
+       block keeps some hierarchy under the brighter eyebrow/name, instead of
+       reading as one flat wall of text. */
+    opacity: 0.88;
+  }
+  .hero .btn--ghost {
+    border-color: var(--on-accent);
+    color: var(--on-accent);
+  }
+  .hero .btn--ghost:hover {
+    border-color: var(--on-accent);
+    color: var(--on-accent);
+    background: rgba(245, 241, 235, 0.1);
+    box-shadow: 0 14px 28px -18px rgba(16, 35, 26, 0.5);
+  }
+  .hero .btn--primary { background: #2d3f31; color: var(--on-accent); }
+  .hero .btn--primary:hover { background: #263628; }
   .hero__actions {
     justify-content: center;
     /* Keeps the CTA row clear of the scroll cue that flows directly beneath it. */
@@ -480,6 +522,10 @@ p { text-align: justify; }
     max-width: 280px;
     aspect-ratio: 4 / 5;
     margin: calc(var(--header-h) + 12px) auto 1.5rem;
+    /* Stays off forest-green here — the bio panel below now carries the
+       site's one accent color, so the portrait keeps a neutral "clean
+       sheet" frame instead of doubling the green up. */
+    background: var(--surface);
     padding: 0.65rem;
     border-radius: var(--radius);
   }
@@ -940,7 +986,7 @@ p { text-align: justify; }
 @media (max-width: 980px) {
   .nav__toggle { display: flex; z-index: 1001; }
   .nav__menu {
-    position: fixed;
+    position: fixed !important;
     inset: 0 0 0 auto;
     width: min(78vw, 320px);
     flex-direction: column;
@@ -950,11 +996,14 @@ p { text-align: justify; }
     justify-content: flex-start;
     gap: 2rem;
     padding: calc(var(--header-h) + 0.75rem) var(--gutter) 2rem;
-    background: var(--ink); /* solid, fully opaque near-black — never transparent */
+    /* Solid, fully opaque near-black — never transparent. !important guards
+       against the SVG field map and hero portrait panel's own stacking
+       contexts ever bleeding through the sidebar. */
+    background-color: #1c1c1a !important;
     border-left: 1px solid rgba(245, 241, 235, 0.12);
     transform: translateX(100%);
     transition: transform 0.4s var(--ease);
-    z-index: 1000;
+    z-index: 9999 !important;
   }
   .nav__menu.is-open { transform: translateX(0); }
 
@@ -963,7 +1012,7 @@ p { text-align: justify; }
     position: fixed;
     inset: 0;
     background: rgba(28, 28, 26, 0.6);
-    z-index: 999;
+    z-index: 9998;
     opacity: 0;
     visibility: hidden;
     transition: opacity 250ms var(--ease-out), visibility 250ms var(--ease-out);
@@ -1091,13 +1140,25 @@ body.inner { padding-top: var(--header-h); }
 .field-map__svg { display: block; width: 100%; height: auto; }
 
 @media (max-width: 640px) {
-  /* At full-width scaling, the map's 1750:620 aspect ratio renders under
-     130px tall on a phone — the hand-drawn zones become illegible and their
-     hit areas too small to tap accurately. Below 640px, hold the map at a
-     legible fixed height and let it scroll horizontally instead of shrinking
-     to fit, the same way a wide table scrolls rather than compresses. */
-  .field-map { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
-  .field-map__svg { width: auto; height: 260px; max-width: none; }
+  /* Fluid full-width fit (the base rule above already gives every zone
+     comfortably-sized hit areas at this scale) rather than a fixed-height
+     horizontal scroll — the whole viewBox stays visible with nothing
+     cropped, and the section never grows wider than the viewport. */
+  .field-map { overflow-x: hidden; }
+
+  /* The phylogenetic-tree strip's hit rect is 160 viewBox units tall — at
+     this section's ~333px rendered width (375px viewport minus its gutter
+     padding) that's under 31px, below Apple's 44pt tap-target floor. Its art
+     sits well inside y 8–170, so the rect can grow downward without
+     touching the artwork; the four zones below it give up the same 78 units
+     from their (much taller, still far above 44px) hit rects so the two
+     sets meet edge-to-edge with no gap and no overlap. Geometry only — the
+     illustration itself is untouched. */
+  .field-zone--phylo .field-zone__hit { y: 8px; height: 240px; }
+  .field-zone--water .field-zone__hit,
+  .field-zone--leaf .field-zone__hit,
+  .field-zone--rock .field-zone__hit,
+  .field-zone--lab .field-zone__hit { y: 248px; height: 362px; }
 }
 
 /* Zone hover surface: brighten + hairline border, never a hard highlight */
