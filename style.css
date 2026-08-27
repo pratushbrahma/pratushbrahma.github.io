@@ -404,10 +404,13 @@ p { text-align: justify; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 640px;
   padding: calc(var(--header-h) + 2rem) clamp(1.5rem, 4vw, 3.5rem) clamp(3rem, 8vh, 5rem) var(--gutter);
   /* The hero's one forest-green panel — the bio copy and CTA, not the
-     portrait, carries the accent (see .hero__portrait-panel below). */
+     portrait, carries the accent (see .hero__portrait-panel below). No
+     max-width here: this box IS the green fill for the whole grid column,
+     so capping its width would leave a bare parchment gap before the
+     portrait starts. Reading measure is instead capped on .hero__tagline
+     itself (max-width: 62ch), which is the only child long enough to need it. */
   background-color: var(--accent);
 }
 .hero__eyebrow {
@@ -512,6 +515,14 @@ p { text-align: justify; }
   align-items: center;
   gap: 0.8rem;
   color: var(--text-muted);
+  /* Centred on the hero, this straddles the seam between the green bio
+     panel and the portrait photo — no single text colour reads against
+     both. An opaque "clean sheet" pill (the site's existing card/chip
+     surface) guarantees contrast regardless of what's behind it. */
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 0.9rem 1.4rem 1.1rem;
+  box-shadow: 0 16px 34px -20px rgba(28, 28, 26, 0.35);
 }
 /* Flows in normal document flow directly beneath the CTA row instead of
    pinning to the (possibly content-overflowed) bottom of the hero box.
@@ -523,6 +534,13 @@ p { text-align: justify; }
     bottom: auto;
     transform: none;
     margin: 0 auto;
+    /* The pill backing above exists for the desktop seam, where the cue
+       floats across both the green panel and the photo. Stacked mobile
+       flows it in normal document flow on the plain parchment ground below
+       both, where the original muted text already read fine. */
+    background: none;
+    padding: 0;
+    box-shadow: none;
   }
 }
 .hero__scroll-text {
