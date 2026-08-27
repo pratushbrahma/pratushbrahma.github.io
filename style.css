@@ -456,14 +456,24 @@ p { text-align: justify; }
 .hero .btn--primary { background: #2d3f31; color: var(--on-accent); }
 .hero .btn--primary:hover { background: #263628; }
 
-/* Portrait: no fill of its own — it sits against the hero's natural
-   parchment ground (or the illustrated scene it borders on mobile), since
-   the bio panel above now carries the site's one accent colour. */
+/* Portrait: full-bleed against the hero's natural parchment ground — no
+   fill or framing padding of its own, since the bio panel carries the
+   site's one accent colour. A thin green rule marks the seam where the
+   two panels meet, so the join reads as a deliberate line rather than a
+   raw cut between two flat fills. */
 .hero__portrait-panel {
   position: relative;
   z-index: 1;
-  padding: clamp(1rem, 2.4vw, 1.85rem);
-  box-sizing: border-box;
+}
+.hero__portrait-panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--accent);
+  z-index: 2;
 }
 .hero__portrait {
   width: 100%;
@@ -471,7 +481,6 @@ p { text-align: justify; }
   object-fit: cover;
   object-position: center top;
   display: block;
-  border-radius: var(--radius);
   filter: sepia(8%) contrast(0.96);
 }
 
@@ -502,6 +511,11 @@ p { text-align: justify; }
     padding: 0.65rem;
     border-radius: var(--radius);
   }
+  /* The green seam rule is a desktop-only idea (it marks the horizontal
+     join between the two side-by-side panels) — irrelevant once the
+     layout stacks vertically. */
+  .hero__portrait-panel::before { content: none; }
+  .hero__portrait { border-radius: var(--radius); }
 }
 
 .hero__scroll {
