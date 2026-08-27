@@ -406,19 +406,22 @@ p { text-align: justify; }
   justify-content: center;
   max-width: 640px;
   padding: calc(var(--header-h) + 2rem) clamp(1.5rem, 4vw, 3.5rem) clamp(3rem, 8vh, 5rem) var(--gutter);
+  /* The hero's one forest-green panel — the bio copy and CTA, not the
+     portrait, carries the accent (see .hero__portrait-panel below). */
+  background-color: var(--accent);
 }
 .hero__eyebrow {
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.15rem;
-  color: var(--accent);
+  color: var(--on-accent);
   margin-bottom: 0.85rem;
 }
 .hero__name {
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 2.6vw, 2.2rem);
   font-weight: 500;
-  color: var(--text);
+  color: var(--on-accent);
   margin-bottom: 1.1rem;
   letter-spacing: -0.01em;
 }
@@ -426,7 +429,11 @@ p { text-align: justify; }
   max-width: 62ch;
   font-size: 1.05rem;
   line-height: 1.8;
-  color: var(--text-dim);
+  color: var(--on-accent);
+  /* A touch of transparency (still the same cream) so the three-paragraph
+     block keeps some hierarchy under the brighter eyebrow/name, instead of
+     reading as one flat wall of text. */
+  opacity: 0.88;
   font-weight: 300;
   margin-bottom: 2.5rem;
 }
@@ -436,22 +443,22 @@ p { text-align: justify; }
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
 .hero .btn { font-size: 1rem; padding: 0.85rem 2rem; }
-.hero .btn--ghost { border-color: var(--line); color: var(--text); }
+.hero .btn--ghost { border-color: var(--on-accent); color: var(--on-accent); }
 .hero .btn--ghost:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  box-shadow: 0 14px 28px -18px rgba(28, 28, 26, 0.25);
+  border-color: var(--on-accent);
+  color: var(--on-accent);
+  background: rgba(245, 241, 235, 0.1);
+  box-shadow: 0 14px 28px -18px rgba(16, 35, 26, 0.5);
 }
+.hero .btn--primary { background: #2d3f31; color: var(--on-accent); }
+.hero .btn--primary:hover { background: #263628; }
 
-/* Portrait: a deep-green panel on the right half at desktop width, framing
-   the portrait with the site's forest-green accent so the hero reads as
-   two colour panels (parchment / forest green), not one flat page. The
-   seam-side (left) edge fades into the bio panel's parchment ground so
-   the two halves don't read as a hard cut; the outer edge stays a clean crop. */
+/* Portrait: no fill of its own — it sits against the hero's natural
+   parchment ground (or the illustrated scene it borders on mobile), since
+   the bio panel above now carries the site's one accent colour. */
 .hero__portrait-panel {
   position: relative;
   z-index: 1;
-  background: var(--accent);
   padding: clamp(1rem, 2.4vw, 1.85rem);
   box-sizing: border-box;
 }
@@ -464,14 +471,6 @@ p { text-align: justify; }
   border-radius: var(--radius);
   filter: sepia(8%) contrast(0.96);
 }
-.hero__portrait-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: 22%;
-  background: linear-gradient(90deg, var(--parchment), transparent);
-  pointer-events: none;
-}
 
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; }
@@ -481,32 +480,7 @@ p { text-align: justify; }
     /* The portrait panel (order: -1, below) is the first element in visual
        order here, so it — not this — carries the fixed-navbar clearance. */
     padding: 2.5rem var(--gutter) clamp(3rem, 9vh, 5rem);
-    /* Full-bleed forest-green panel behind the bio text, restored for the
-       stacked mobile layout — the site's one accent color, so it stays off
-       the portrait panel above (kept neutral) rather than doubling up. */
-    background-color: var(--accent);
   }
-  .hero__eyebrow,
-  .hero__name { color: var(--on-accent); }
-  .hero__tagline {
-    color: var(--on-accent);
-    /* A touch of transparency (still the same cream) so the three-paragraph
-       block keeps some hierarchy under the brighter eyebrow/name, instead of
-       reading as one flat wall of text. */
-    opacity: 0.88;
-  }
-  .hero .btn--ghost {
-    border-color: var(--on-accent);
-    color: var(--on-accent);
-  }
-  .hero .btn--ghost:hover {
-    border-color: var(--on-accent);
-    color: var(--on-accent);
-    background: rgba(245, 241, 235, 0.1);
-    box-shadow: 0 14px 28px -18px rgba(16, 35, 26, 0.5);
-  }
-  .hero .btn--primary { background: #2d3f31; color: var(--on-accent); }
-  .hero .btn--primary:hover { background: #263628; }
   .hero__actions {
     justify-content: center;
     /* Keeps the CTA row clear of the scroll cue that flows directly beneath it. */
@@ -522,14 +496,9 @@ p { text-align: justify; }
     max-width: 280px;
     aspect-ratio: 4 / 5;
     margin: calc(var(--header-h) + 12px) auto 1.5rem;
-    /* Stays off forest-green here — the bio panel below now carries the
-       site's one accent color, so the portrait keeps a neutral "clean
-       sheet" frame instead of doubling the green up. */
-    background: var(--surface);
     padding: 0.65rem;
     border-radius: var(--radius);
   }
-  .hero__portrait-panel::before { content: none; }
 }
 
 .hero__scroll {
@@ -988,7 +957,9 @@ p { text-align: justify; }
   .nav__menu {
     position: fixed !important;
     inset: 0 0 0 auto;
-    width: min(78vw, 320px);
+    /* Capped at 260px, and at 45vw never exceeds 45% of the screen even on
+       small phones — comfortably under the old ~78vw/320px sizing. */
+    width: min(45vw, 260px);
     flex-direction: column;
     align-items: flex-start;
     /* flex-start (not center) + a top pad that just clears the toggle button,
@@ -996,16 +967,21 @@ p { text-align: justify; }
     justify-content: flex-start;
     gap: 2rem;
     padding: calc(var(--header-h) + 0.75rem) var(--gutter) 2rem;
-    /* Solid, fully opaque near-black — never transparent. !important guards
-       against the SVG field map and hero portrait panel's own stacking
-       contexts ever bleeding through the sidebar. */
-    background-color: #1c1c1a !important;
-    border-left: 1px solid rgba(245, 241, 235, 0.12);
+    /* Solid, fully opaque warm parchment — the site's own page colour,
+       never transparent. !important guards against the SVG field map and
+       hero portrait panel's own stacking contexts ever bleeding through. */
+    background-color: var(--parchment) !important;
+    border-left: 1px solid var(--line);
+    box-shadow: -24px 0 50px -30px rgba(28, 28, 26, 0.35);
+    /* Slides in from the right (translateX(100%) → 0). Closed/close-out
+       state: 280ms. Never ease-in either direction. */
     transform: translateX(100%);
-    transition: transform 0.4s var(--ease);
+    transition: transform 280ms var(--ease);
     z-index: 9999 !important;
   }
-  .nav__menu.is-open { transform: translateX(0); }
+  /* Open state carries its own longer, softer 320ms transition so the
+     open and close gestures each get the duration spec calls for. */
+  .nav__menu.is-open { transform: translateX(0); transition: transform 320ms var(--ease); }
 
   /* Dims and separates the page content behind the open sidebar; tapping it closes the menu (see script.js). */
   .nav__overlay {
@@ -1028,13 +1004,13 @@ p { text-align: justify; }
     margin: 0 -12px;
     border-radius: 8px;
     font-size: 1.2rem;
-    color: var(--parchment) !important; /* warm off-white, for contrast against the near-black sidebar */
+    color: var(--text) !important; /* dark ink, for contrast against the parchment sidebar */
     background-color: transparent;
     transition: color 300ms var(--ease-out), background-color 250ms var(--ease-out);
   } /* ~44px tap height */
   .nav__menu a:hover { background-color: rgba(59, 82, 64, 0.12); }
   .nav__menu a[aria-current="page"] { color: var(--accent) !important; }
-  .nav__cta { color: var(--parchment) !important; }
+  .nav__cta { color: var(--text) !important; border-color: var(--line); }
 
   .pub { grid-template-columns: 1fr; gap: 0.5rem; }
   .pub__year { padding-top: 0; }
