@@ -39,75 +39,72 @@
   </header>
 
   <main id="main">
-    <div class="page-hero">
-      <div class="page-hero__wrap">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a> / <span>About</span>
-        </nav>
-        <h1 class="page-hero__title reveal" data-reveal>Hi, I&rsquo;m <em>Pratush</em>.</h1>
-        <p class="page-hero__lead reveal" data-reveal>
-          A wildlife biologist who is endlessly nosy about why animals do what they
-          do, and who still can&rsquo;t quite believe that watching them closely
-          counts as a job.
-        </p>
-      </div>
-    </div>
+    <nav class="breadcrumb about-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> / <span>About</span>
+    </nav>
+
+    <section class="about-intro">
+      <figure class="about-portrait reveal" data-reveal>
+        <div class="about-portrait__frame">
+          <img class="about-portrait__img" src="images/about/portrait.jpg" alt="Pratush Brahma, behavioural ecologist" onerror="this.remove()" />
+        </div>
+        <figcaption class="about-portrait__caption">At the desk, between field seasons.</figcaption>
+      </figure>
+    </section>
 
     <section class="section about" aria-labelledby="about-heading">
-      <div class="section__wrap about__grid">
-        <div class="about__media reveal" data-reveal>
-          <div class="about__photo" role="img" aria-label="Portrait of Pratush Brahma at his desk">
-            <img class="about__photo-img" src="images/about/portrait.jpg" alt="Pratush Brahma, behavioural ecologist" onerror="this.remove()" />
-          </div>
-          <p class="about__caption">At the desk, between field seasons.</p>
+      <div class="section__wrap about__narrative">
+        <p class="section__kicker reveal" data-reveal>My story</p>
+        <h2 class="section__title reveal" data-reveal id="about-heading">The short version</h2>
+
+        <div class="about__prose reveal" data-reveal>
+          <p>
+            It started with a library book. In high school I read a biography of
+            <em>Charles Darwin</em>, and the idea that all of life could be
+            explained by evolution lodged in my head and refused to leave.
+          </p>
+          <p>
+            That curiosity followed me into my Integrated Masters at <em>NISER</em>,
+            where I talked my way into two field internships that rearranged my
+            plans completely. One put me in a lab studying how tumours trick the
+            body into growing blood vessels; the other put me on sun-baked rocks in
+            India&rsquo;s Western Ghats, watching lizards fight over territory.
+            Different systems entirely, but the same itch: I wanted to know how
+            living things make decisions, and how that decision-making evolves as
+            they react to the world around them.
+          </p>
+          <p>
+            That question carried me to <em>IISc</em> next, where fieldwork on rock
+            agamas and molecular work untangling frog phylogenetics turned a
+            classroom interest in evolution into hours spent on a hillside, or bent
+            over a specimen, actually watching the logic play out. By the time I
+            applied to PhD programs I knew exactly what I wanted to chase.
+          </p>
+          <p>
+            That thread runs straight through my PhD at the <em>University of
+            Florida</em>. I spent it on two animals that could not be more
+            different. With the <em>African jewelfish</em>, an invasive species
+            that lives with constant upheaval, I asked how reproductive decisions
+            evolve when conditions never settle. With <em>jumping spiders</em>, I
+            dug into why colour vision has evolved again and again in separate
+            lineages, and what it actually helps them decide, whether that is
+            finding food or finding a mate.
+          </p>
+          <p class="about__philosophy">
+            <span class="about__philosophy-label">What keeps me going</span>
+            The strange thing about studying animal behaviour is that every answer
+            opens a dozen new questions. The more I learn, the more I realise is
+            still out there, and the gap only seems to widen. What pushes an animal
+            to pick one option over another, what those choices cost it later, and
+            how the act of deciding itself changes as the world changes: that is the
+            work I expect to be chasing for a very long time.
+          </p>
         </div>
 
-        <div class="about__body">
-          <p class="section__kicker reveal" data-reveal>My story</p>
-          <h2 class="section__title reveal" data-reveal id="about-heading">The short version</h2>
-
-          <div class="about__prose reveal" data-reveal>
-            <p>
-              It started with a library book. In high school I read a biography of
-              <em>Charles Darwin</em>, and the idea that all of life could be
-              explained by evolution lodged in my head and refused to leave.
-            </p>
-            <p>
-              In my Integrated Masters I talked my way into two field internships,
-              and they rearranged my plans completely. All at once I was knee-deep
-              in sexual selection, phylogenetics, ecology, and the strange, brilliant
-              logic of how animals behave. By the time they ended I knew what I
-              wanted to do with my life: work out how animals make decisions, and
-              how that decision making evolves as they react to the world around
-              them. Whether an animal is hunting for its next meal, sizing up a
-              possible mate, or coping with an environment that keeps shifting, I
-              want to know how the choice gets made.
-            </p>
-            <p>
-              That question runs straight through my PhD. I spent it on two animals
-              that could not be more different. With the <em>African jewelfish</em>,
-              an invasive species that lives with constant upheaval, I asked how
-              reproductive decisions evolve when conditions never settle. With
-              <em>jumping spiders</em>, I dug into why colour vision has evolved
-              again and again in separate lineages, and what it actually helps them
-              decide, whether that is finding food or finding a mate.
-            </p>
-            <p class="about__philosophy">
-              <span class="about__philosophy-label">What keeps me going</span>
-              The strange thing about studying animal behaviour is that every answer
-              opens a dozen new questions. The more I learn, the more I realise is
-              still out there, and the gap only seems to widen. What pushes an animal
-              to pick one option over another, what those choices cost it later, and
-              how the act of deciding itself changes as the world changes: that is the
-              work I expect to be chasing for a very long time.
-            </p>
-          </div>
-
-          <ul class="about__stats reveal" data-reveal>
-            <li><span class="about__stat-num">2</span><span class="about__stat-label">Papers published</span></li>
-            <li><span class="about__stat-num">5</span><span class="about__stat-label">Manuscripts in prep</span></li>
-          </ul>
-        </div>
+        <ul class="about__stats reveal" data-reveal>
+          <li><span class="about__stat-num">2</span><span class="about__stat-label">Papers published</span></li>
+          <li><span class="about__stat-num">5</span><span class="about__stat-label">Manuscripts in prep</span></li>
+        </ul>
       </div>
     </section>
 
